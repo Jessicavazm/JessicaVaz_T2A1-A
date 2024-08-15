@@ -3,12 +3,45 @@ Submit a day or two days before to check for Turnitin.
 
 # Q1 - mark 6
 Describe the architecture of a typical API project, such as a Flask application.
-
+Flask
 
 # Q2 - mark 6
 Identify a database commonly used in an API project (such as a Flask application) and discuss the pros and cons of this database.
 
+## PostgreSQL
+PostgreSQL was created back in 1986 at the University of California, Berkeley. Originally the system was named POSTGRES in relation to the Ingres database which was also developed in the same university. Later on, in 1996 the project was renamed from Postgres to PostgreSQL to reflect the support to SQL (Structure query language). The project was created under the professor Michael Stone breaker. PostgreSQL is one of the most older database systems and it's extremely popular due to it's reliability and architecture. It's an open source database system which means it's not owned by a single company or owner and source code can be accessed by anyone. The database system is managed by a group of developers and volunteers called PostgreSQL Global Development Group. 
+PostgreSQL is currently on version 16, with version 16.4 released on August 8, 2024.<br>
 
+### Pros of PostgreSQL
+- It complies with ACID (Atomicity, Consistency, Isolation and Durability) since 2001, these four pillars when applied to database guarantees the data stays consistent and preserves data integrity.
+- Use of PK(Primary key), FK(Foreign key) and constraints also ensures data integrity.
+- It complies with SQL standards which helps when migrating from other SQL databases.
+- Flexibility: PostgreSQL can either be used as relation db system or non relational (NoSQL) for JSON data storage and query.
+- DB system is compatible with most computer operating systems such as Linux, Windows, MacOS, BSD and Solaris.
+- Open source and free of charge, open source brings a sense of thrust between users and developers. Since source code is open to anyone, users are able to inspect and modify the software according to their needs free of charge. Open source can be also used for learning purposes for developers to upgrade their skills by inspecting,modifying and contributing to code.
+- Strong community that contributes to software development, provides support and resources. Community is very driven when it comes to report and fix bugs leading to a more improved and reliable system.
+- Supports a great variety of query and procedural languages such as SQL, PL/pgSQL, Python, Perl.
+- Multi-Version concurrency Control allows multiple data to be processed simultaneously without interfering with each other.
+- Accepts Primitives data, Structured data such as Date/time, Arrays, Range, JSON, JSONB, XML, Geometry Data and it also allows you to custom your own data(composite and custom types).
+- PostgreSQL supports video, audio, and image files.
+- Allows functions customizations that are useful for performing calculations or simplifying queries.
+- Indexing and Advanced Indexing improves database query performance by quicker way to access values.
+- Table partitioning which is helpful when it comes to table management and readability, this function slipt larger table in smaller tables but the table is still managed as one piece.  
+- Incorporates Write-Ahead Logging (WAL) which is a feature that ensures data integrity by recording changes to database first in a log before the actual database, so in case of a failure, it's possible to recover the database to it's previous state.
+- Robust Access-Control System which allows the owner of the table to grant and revoke permissions to other users making data more secure. Column and row level security specifies what columns or rows users are allowed to view and perform modifications.
+- PostgreSQL supports many different types of authentication such as GSSAPI, SSPI, LDAP, SCRAM-SHA-256 and Certificate. Pgcrypto extension can also be used in PostgreSQL to perform hashing and encryption to handle sensitive data and ensure data security.
+- Suitable for cloud environments.
+
+### Cons of PostgreSQL
+- Since PostgreSQL is an open source and not owned by a particular organisation, the database software does not carry liability for damages or offers warranty of any kind.
+- Due to it's vast number of functionalities which is also considered a strong feature, it can be intimidating to users who are new to the system or users who don't have much experience with relational databases systems.
+- Performance can be considered slower than SQL Server and MySQL.
+
+Sources: <br>
+https://www.postgresql.org/about/ <br>
+https://aws.amazon.com/rds/postgresql/what-is-postgresql/ <br>
+https://www.aalpha.net/blog/pros-and-cons-of-using-postgresql-for-application-development/ <br>
+https://cloud.google.com/learn/postgresql-vs-sql <br>
 
 # Q3 - mark 6
 Discuss an implementation of an Agile project management methodology for an API project.
@@ -36,7 +69,7 @@ It ensures data is only accessible to view and edit to authorised users by imple
 - Integrity: 
 This component is responsible for data's integrity during transit or rest processes. Some techniques to help with integrity are checksum and hash functions. Checksum is unique value that is generated after processing the original data, in case of an accidental error, a different checksum will be generated indicating the data has been altered. Hash function converts a file to fixed strings of bytes(Hexadecimal). Like Checksum, the Hash function produces a unique value that is used to check if data has been modified.<br>
 Version control system such as GIT is also used as a method to ensure data integrity, allowing users to track all changes and restore previous version if needed.
-System and data redundancy are another important measures organisations can use to make sure their data is complete and operations can be handled in case of failure/loss. Often backups and multiple copies in different systems or locations can also be beneficial to ensure if their suffer an cyber attack they don't have a total loss of data.
+System and data redundancy are another important measures organisations can use to make sure their data is complete and operations can be maintain in case of failure/loss. Often backups and multiple copies in different systems or locations can also be beneficial to ensure if their suffer an cyber attack they don't have a total loss of data.
 
 
 - Availability:
@@ -44,8 +77,11 @@ This component ensures the data is available all the time to authorised users fo
 
 REF: https://www.infosecurityeurope.com/en-gb/blog/guides-checklists/principles-of-information-security.html
 
-# Q7 - mark 6
+# Q7 - mark 12
 Provide an overview of what would need to be done within an API project to implement at least one of the principles explained in Question 6.
+
+- Component `Confidentiality`
+
 
 
 # Q8 - mark 12 (second main question)
