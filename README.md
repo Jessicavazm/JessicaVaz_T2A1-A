@@ -3,7 +3,85 @@ Submit a day or two days before to check for Turnitin.
 
 # Q1 - mark 6
 Describe the architecture of a typical API project, such as a Flask application.
-Flask
+The typical architecture of an API is designed to handle http requests such as get, post, patch and delete. Flask is lightweight yet powerful Python based framework that depends on Werkzeug(WSGI library), Jinja(for rendering the pages on server) and Click(for Flask commands lines and custom commands). All dependencies are installed automatically when you instal Flask. <br>
+- The typical architecture of an API project starts with creating our directory folder, following by creating a virtual environment and activating it.
+
+- Requirements.txt file contains required packages to connect API to database, make data available and readable between applications. Bellow is an example of a list of required packages and it's functionalities.
+    - Psycopg2 = works as the driver to link flask to database
+    - Marshmallow = it helps flask to read data from/to database
+    - Marshmallow_sqlalchemy = extension that facilitates integration between marshmallow and sqlalchemy, it generates schemas based on sqlalchemy models that is used for data serialization/deserialization.
+    - Flask_bcrypt = Used for handling sensitive data and password encryption
+    - Flask_jwt_extended = Used for authentication methods, token creation. 
+
+![Example of requirements.txt file](./screenshots/requirements.txt.png)
+
+- Main.py 
+    - This file contains the core code for the application. 
+    Start from importing Flask class from flask package to create the app instance. Wrap the app definition inside of a function (this creates a application factory, allows the creation of multiple instances and configurations which is extremely useful for testing).
+    Import `os` to fetch environment variables from .env file to define configurations such as URL and Secret key.
+    Import objects from init.py file and initialise them passing the Flask app instance as a parameter in the init method.
+    Import Blueprint from controllers folder and register them in the app to be able to use it's commands and routes.
+
+- Init.py
+    - This file contains all the classes imported from necessary packages to run the API. In this example,
+    the classes imported are SQLAlchemy, Marshmallow, Bcrypt and JWTManager. It also contains the objects created from imported classes to initialise objects and use them in the main.py file. Importing the classes and initialising the objects in a different file is very beneficial, it ensures data organisation, data modularisation and code scalability.
+
+- Models folder
+    - In this folder, you can have a file for model and another file for schema (helpful in big projects for more organisation) or you can have model and the schema in one file such as in the example provided as a reference.
+    - Model needs to import from init the instance from SQLAlchemy create the table and define table.
+    - This file contains a class which creates a table and defines the attributes (columns values and value types), the structure is inherited from SQLALchemy. Variable __tablename__ sets the name of table in Database.
+    - Schema Class is created with a marshmallow extension to serialise and deserialise data into Python readable data and vice and versa. First, the instance from marshmallow needs to be imported from init.py for this process to happen. This process ensures the request can be received by the API, and the API can send back responses to it's requests.
+    - Class Meta defines what fielders will be included in serialisation/deserialisation.
+    - Schemas objects are created to handle single or multiple items when performing operations on data. Exclusion of sensitive data is performed using `exclude=[]` passed in the object's parameter.
+
+- Controllers folder
+    - Blueprints are placed in each file controller files for modularisation, it makes each module independent.
+    - Cli_controllers file:
+        - Contains the cli_controllers file with custom commands that are created to perform operations in the database such as create, seed and drop tables. These commands can automatically insert values in database by creating instances of the model class and inserting values in the commands code (helpful for fast api testing).
+        - Features:
+        Create: Initializes database tables.
+        Seed: Inserts initial data into the database by creating instances of model classes.
+        Drop: Removes all database tables.
+        - CLI commands file needs to import instance of SQLAlchemy (access database), Bcrypt (for hashing password) and Model class from models directory (creates and manages tables/objects).
+
+    - Auth_controller:
+        - Contains the authorisation file, this file contains routes for authentication such as registration, login, token creation. 
+        - This file imports request from flask to handle https incoming requests, model and schema from models directory to create an instance, bcrypt for hashing password, create_access_token to create a JWT that will be returned to user when authentication is successful.
+        - Timedelta is also used when creating the JWT to give the token an expiring time for security purposes.
+        - Errorcodes is imported for personalised error messages in except block.
+        - Register route and Login routes both uses `POST` method since both routes operates on data.
+    
+    #### Examples of routes in auth_controller file:
+         Register route:
+         Handles user registration.
+         Accepts user details like name, email, and password.
+         Hashes the password for security.
+         Adds the user to the database and returns the user data or an error message if something goes wrong.
+        
+         Login route:
+         Handles user login.
+         Accepts email and password from the user.
+         Verifies the credentials against the stored data.
+         If valid, generates a JWT token that the user can use to authenticate further requests.
+         Returns the token and user details or an error message if login fails.
+
+- Gitignore
+    - File contains all files that should be ignored when pushing to source control such as GIT. Files contains sensitive data or are not relevant to be pushed into the repository.
+- README.md
+    - File containing important and relevant information about flask app, it's purpose, setup instructions and how to use API.
+- .flaskenv
+    - File contains environment variables directly related to Flask. `FLASK_APP` is set here to tell our flask what name to look for to run our API. The port can also be set in this file.
+- .env 
+    - File contains environment variables indirectly related to Flask, as it contains sensitive information, this file is usually added on .gitignore file. This file contains URL variable which is responsible for connecting API to DATABASE, sensitive information such as database username and password is included in this variable. This file also contains a variable that stores a secret key that is used to sign and verify JWT.
+- .env.example
+    - This file contains variable names without the value or with 'fake' value set in .env file. This file is created to point out the necessary environment variables to run the application. 
+- Tests
+    - Folder contains unit tests, integration tests to test functionality of API and make sure API works as expected.
+
+![Example of API structure](./screenshots/Flask.pdf)
+
+Ref: https://flask.palletsprojects.com/en/3.0.x/tutorial/layout/
+https://www.geeksforgeeks.org/flask-tutorial/
 
 # Q2 - mark 6
 Identify a database commonly used in an API project (such as a Flask application) and discuss the pros and cons of this database.
@@ -33,8 +111,10 @@ PostgreSQL is currently on version 16, with version 16.4 released on August 8, 2
 - Suitable for cloud environments.
 
 ### Cons of PostgreSQL
+It appears that PostgreSQL has relatively few downsides. Here are some potential drawbacks I’ve found:
 - Since PostgreSQL is an open source and not owned by a particular organisation, the database software does not carry liability for damages or offers warranty of any kind.
 - Due to it's vast number of functionalities which is also considered a strong feature, it can be intimidating to users who are new to the system or users who don't have much experience with relational databases systems.
+- Data migrating/ and software updates can be complex/slow. 
 - Performance can be considered slower than SQL Server and MySQL.
 
 Sources: <br>
@@ -42,9 +122,12 @@ https://www.postgresql.org/about/ <br>
 https://aws.amazon.com/rds/postgresql/what-is-postgresql/ <br>
 https://www.aalpha.net/blog/pros-and-cons-of-using-postgresql-for-application-development/ <br>
 https://cloud.google.com/learn/postgresql-vs-sql <br>
+https://www.aalpha.net/blog/pros-and-cons-of-using-postgresql-for-application-development/ <br>
 
 # Q3 - mark 6
 Discuss an implementation of an Agile project management methodology for an API project.
+
+Agile Kanban
 
 
 
@@ -65,12 +148,10 @@ CIA triad is an Information system security model that has 3 core principles: Co
 - Confidentiality: 
 It ensures data is only accessible to view and edit to authorised users by implementing control's measures such as authentication, encryption and data masking. Authentication method ensures user's identification, it can be done through username and password, tokens, biometric identifiers such as fingerprint or facial and plenty more. Encryption methods ensures data is secured in the transit process by making it unreadable. When you encrypt a file, it generates a key which is only granted to authorised users. With this key, users are able to convert message to the original format and read it. Masking is another method that involves replacing the original data with a fictional data. Monitoring data is also another important process in the confidentiality method. Organisations can use applications such as Intrusion detection system (IDS) and Intrusion prevention system (IPS) to prevent and report any malicious activity. Another powerful tool is to report security incidents, this can also help to identify any security breach that might occur in the future. For this reason, employees should be trained and be aware of security breaches types and best practices to be able to identify any future problem and understand how to handle data securely.
 
-
 - Integrity: 
 This component is responsible for data's integrity during transit or rest processes. Some techniques to help with integrity are checksum and hash functions. Checksum is unique value that is generated after processing the original data, in case of an accidental error, a different checksum will be generated indicating the data has been altered. Hash function converts a file to fixed strings of bytes(Hexadecimal). Like Checksum, the Hash function produces a unique value that is used to check if data has been modified.<br>
 Version control system such as GIT is also used as a method to ensure data integrity, allowing users to track all changes and restore previous version if needed.
 System and data redundancy are another important measures organisations can use to make sure their data is complete and operations can be maintain in case of failure/loss. Often backups and multiple copies in different systems or locations can also be beneficial to ensure if their suffer an cyber attack they don't have a total loss of data.
-
 
 - Availability:
 This component ensures the data is available all the time to authorised users for viewing and modifications when it needed. To ensure maximum availability, the system must be safe from malicious activities and data should be stored/managed safely. This component goes side by side with confidentiality and integrity components. Some measures to make this happen includes conducting regular system maintenance updates, implements measures to protect against malicious attacks, make use of data and system redundancy, have a recovery plan, use of Load balancers to distribute incoming traffic across multiple servers and preventing one server to become overwhelmed resulting in better performance. Load balance softwares includes HAProxy and NGINX or Cloud-based includes AWS Elastic and Azure. Recover plans can include risk assessments to identify threats and potential risks, and recovery procedures to indicate what steps to take in case of data/ system disruption.
@@ -81,6 +162,7 @@ REF: https://www.infosecurityeurope.com/en-gb/blog/guides-checklists/principles-
 Provide an overview of what would need to be done within an API project to implement at least one of the principles explained in Question 6.
 
 - Component `Confidentiality`
+
 
 
 
