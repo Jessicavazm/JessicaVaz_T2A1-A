@@ -1,16 +1,16 @@
 # Project - workbook (t2) Part A
 Submit a day or two days before to check for Turnitin. 
 
-# Q1 - mark 6
-Describe the architecture of a typical API project, such as a Flask application.
-The typical architecture of an API is designed to handle http requests such as get, post, patch and delete. Flask is lightweight yet powerful Python based framework that depends on Werkzeug(WSGI library), Jinja(for rendering the pages on server) and Click(for Flask commands lines and custom commands). All dependencies are installed automatically when you instal Flask. <br>
+# Q1
+The typical architecture of an API is designed to handle http requests such as get, post, patch and delete. Flask is lightweight yet powerful Python based framework that depends on Werkzeug (WSGI library), Jinja (for rendering the pages on server) and Click (for Flask commands lines and custom commands). All dependencies are installed automatically when you instal Flask. 
+
 - The typical architecture of an API project starts with creating our directory folder, following by creating a virtual environment and activating it.
 
 - Requirements.txt file contains required packages to connect API to database, make data available and readable between applications. Bellow is an example of a list of required packages and it's functionalities.
-    - Psycopg2 = works as the driver to link flask to database
-    - Marshmallow = it helps flask to read data from/to database
+    - Psycopg2 = works as the driver to link flask to database.
+    - Marshmallow = it helps flask to read data from/ to database.
     - Marshmallow_sqlalchemy = extension that facilitates integration between marshmallow and sqlalchemy, it generates schemas based on sqlalchemy models that is used for data serialization/deserialization.
-    - Flask_bcrypt = Used for handling sensitive data and password encryption
+    - Flask_bcrypt = Used for handling sensitive data and password encryption.
     - Flask_jwt_extended = Used for authentication methods, token creation. 
 
 ![Example of requirements.txt file](./screenshots/requirements.txt.png)
@@ -78,7 +78,11 @@ The typical architecture of an API is designed to handle http requests such as g
 - Tests
     - Folder contains unit tests, integration tests to test functionality of API and make sure API works as expected.
 
-![Example of API structure](./screenshots/Flask.pdf)
+- Bellow is an example of the Trello API structure we are doing in class and another structure example from Flask documentation.
+
+![Example of API structure](./screenshots/flaskscreens.png)
+![Example of API structure from flask](./screenshots/API_structure.png)
+
 
 Ref: https://flask.palletsprojects.com/en/3.0.x/tutorial/layout/
 https://www.geeksforgeeks.org/flask-tutorial/
