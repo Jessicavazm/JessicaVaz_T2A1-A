@@ -78,21 +78,23 @@ The typical architecture of an API is designed to handle http requests such as g
 - Tests
     - Folder contains unit tests, integration tests to test functionality of API and make sure API works as expected.
 
-- Bellow is an example of the Trello API structure we are doing in class and another structure example from Flask documentation.
+- Bellow is an example of the Trello API structure we are doing in class.
+![Example of API structure](./screenshots/flaskscreens.png) 
 
-![Example of API structure](./screenshots/flaskscreens.png)
-![Example of API structure from flask](./screenshots/API_structure.png)
+- Example of API structure from https://flask.palletsprojects.com/
+![Example of API structure from flask documentation](./screenshots/API_structure.png)
 
+References:
 
-Ref: https://flask.palletsprojects.com/en/3.0.x/tutorial/layout/
-https://www.geeksforgeeks.org/flask-tutorial/
+Flask (2010). Welcome to Flask — Flask Documentation (3.0.x). [online] flask.palletsprojects.com. Available at: https://flask.palletsprojects.com/en/3.0.x/ 
+‌
+GeeksforGeeks. (2023). Flask Tutorial. [online] Available at: https://www.geeksforgeeks.org/flask-tutorial/
 
-# Q2 - mark 6
-Identify a database commonly used in an API project (such as a Flask application) and discuss the pros and cons of this database.
+# Q2 
 
 ## PostgreSQL
 PostgreSQL was created back in 1986 at the University of California, Berkeley. Originally the system was named POSTGRES in relation to the Ingres database which was also developed in the same university. Later on, in 1996 the project was renamed from Postgres to PostgreSQL to reflect the support to SQL (Structure query language). The project was created under the professor Michael Stone breaker. PostgreSQL is one of the most older database systems and it's extremely popular due to it's reliability and architecture. It's an open source database system which means it's not owned by a single company or owner and source code can be accessed by anyone. The database system is managed by a group of developers and volunteers called PostgreSQL Global Development Group. 
-PostgreSQL is currently on version 16, with version 16.4 released on August 8, 2024.<br>
+PostgreSQL is currently on version 16, with version 16.4 released on August 8, 2024.
 
 ### Pros of PostgreSQL
 - It complies with ACID (Atomicity, Consistency, Isolation and Durability) since 2001, these four pillars when applied to database guarantees the data stays consistent and preserves data integrity.
@@ -121,12 +123,15 @@ It appears that PostgreSQL has relatively few downsides. Here are some potential
 - Data migrating/ and software updates can be complex/slow. 
 - Performance can be considered slower than SQL Server and MySQL.
 
-Sources: <br>
-https://www.postgresql.org/about/ <br>
-https://aws.amazon.com/rds/postgresql/what-is-postgresql/ <br>
-https://www.aalpha.net/blog/pros-and-cons-of-using-postgresql-for-application-development/ <br>
-https://cloud.google.com/learn/postgresql-vs-sql <br>
-https://www.aalpha.net/blog/pros-and-cons-of-using-postgresql-for-application-development/ <br>
+References: 
+
+PostgreSQL (2019). PostgreSQL: About. [online] Postgresql.org. Available at: https://www.postgresql.org/about/.
+
+Amazon Web Services (n.d.). What is PostgreSQL? – Amazon Web Services. [online] Amazon Web Services, Inc. Available at: https://aws.amazon.com/rds/postgresql/what-is-postgresql/. 
+
+Dhruv, S. (2019). Pros and Cons of using PostgreSQL for Application Development. [online] Aalpha. Available at: https://www.aalpha.net/blog/pros-and-cons-of-using-postgresql-for-application-development/. 
+
+Dhruv, S. (2019). Pros and Cons of using PostgreSQL for Application Development. [online] Aalpha. Available at: https://www.aalpha.net/blog/pros-and-cons-of-using-postgresql-for-application-development/. 
 
 # Q3 - mark 6
 Discuss an implementation of an Agile project management methodology for an API project.
@@ -145,22 +150,29 @@ Provide an overview and description of a standard testing process for an API pro
 
 
 
-# Q6 - mark 6
-Explain the three principles of information system security.
+# Q6 
 CIA triad is an Information system security model that has 3 core principles: Confidentiality, Integrity and Availability. This model is widely used by organisations and it's main purpose is to keep data secure. The three components corelate to each other.
 
 - Confidentiality: 
+
 It ensures data is only accessible to view and edit to authorised users by implementing control's measures such as authentication, encryption and data masking. Authentication method ensures user's identification, it can be done through username and password, tokens, biometric identifiers such as fingerprint or facial and plenty more. Encryption methods ensures data is secured in the transit process by making it unreadable. When you encrypt a file, it generates a key which is only granted to authorised users. With this key, users are able to convert message to the original format and read it. Masking is another method that involves replacing the original data with a fictional data. Monitoring data is also another important process in the confidentiality method. Organisations can use applications such as Intrusion detection system (IDS) and Intrusion prevention system (IPS) to prevent and report any malicious activity. Another powerful tool is to report security incidents, this can also help to identify any security breach that might occur in the future. For this reason, employees should be trained and be aware of security breaches types and best practices to be able to identify any future problem and understand how to handle data securely.
 
 - Integrity: 
+
 This component is responsible for data's integrity during transit or rest processes. Some techniques to help with integrity are checksum and hash functions. Checksum is unique value that is generated after processing the original data, in case of an accidental error, a different checksum will be generated indicating the data has been altered. Hash function converts a file to fixed strings of bytes(Hexadecimal). Like Checksum, the Hash function produces a unique value that is used to check if data has been modified.<br>
 Version control system such as GIT is also used as a method to ensure data integrity, allowing users to track all changes and restore previous version if needed.
 System and data redundancy are another important measures organisations can use to make sure their data is complete and operations can be maintain in case of failure/loss. Often backups and multiple copies in different systems or locations can also be beneficial to ensure if their suffer an cyber attack they don't have a total loss of data.
 
 - Availability:
+
 This component ensures the data is available all the time to authorised users for viewing and modifications when it needed. To ensure maximum availability, the system must be safe from malicious activities and data should be stored/managed safely. This component goes side by side with confidentiality and integrity components. Some measures to make this happen includes conducting regular system maintenance updates, implements measures to protect against malicious attacks, make use of data and system redundancy, have a recovery plan, use of Load balancers to distribute incoming traffic across multiple servers and preventing one server to become overwhelmed resulting in better performance. Load balance softwares includes HAProxy and NGINX or Cloud-based includes AWS Elastic and Azure. Recover plans can include risk assessments to identify threats and potential risks, and recovery procedures to indicate what steps to take in case of data/ system disruption.
 
-REF: https://www.infosecurityeurope.com/en-gb/blog/guides-checklists/principles-of-information-security.html
+References:
+
+Infosecurityeurope.com. (2024). What are the 3 principles of Information Security? [online] Available at: https://www.infosecurityeurope.com/en-gb/blog/guides-checklists/principles-of-information-security.html.
+
+Hashemi-Pour, C. (2023). What is the CIA Triad? Definition, Explanation and Examples. [online] TechTarget. Available at: https://www.techtarget.com/whatis/definition/Confidentiality-integrity-and-availability-CIA.
+
 
 # Q7 - mark 12
 Provide an overview of what would need to be done within an API project to implement at least one of the principles explained in Question 6.
