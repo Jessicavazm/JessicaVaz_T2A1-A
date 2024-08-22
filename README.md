@@ -86,9 +86,9 @@ The typical architecture of an API is designed to handle http requests such as g
 
 References:
 
-Flask (2010). Welcome to Flask — Flask Documentation (3.0.x). [online] flask.palletsprojects.com. Available at: https://flask.palletsprojects.com/en/3.0.x/ 
+Flask (2010). Welcome to Flask — Flask Documentation (3.0.x). [online] flask.palletsprojects.com. Available at: https://flask.palletsprojects.com/en/3.0.x/. 
 ‌
-GeeksforGeeks. (2023). Flask Tutorial. [online] Available at: https://www.geeksforgeeks.org/flask-tutorial/
+GeeksforGeeks. (2023). Flask Tutorial. [online] Available at: https://www.geeksforgeeks.org/flask-tutorial/.
 
 # Q2 
 
@@ -140,9 +140,48 @@ Agile Kanban
 
 
 
-# Q4 - mark 6
-Provide an overview and description of a standard source control process for an API project.
+# Q4 
+Source Control is a crucial aspect of the API development process, offering numerous benefits. It helps track changes made to application, facilitates collaboration among developers and ensures smooth deployment. One of the most popular source control system is GIT, it's free and open source. Git can be used from small to bigger projects. The example I'm going to give uses git for the control system. 
+Some of the benefits of source control include:
+- All changes to code are tracked including edition, deletion and branch merging. The tracking history also includes who performed the change, day/ time and comments about why change has been performed. Track history is very important because when application needs to be improved or bugs need to be fixed, developers can refer back to track history which allows them improve application faster.
+- Branches is another powerful feature that allows developers to work on features independently without conflicting with other branches. Once all changes has been made, testing has been done and application is working as expect, developers can merge branches and delete the extra branches once they have been merged into the main branch (this step is optional). 
+- Branches can be used for trying out ideas, testing. Some companies prefer the idea of creating a branch for each feature of the application but there's plenty of other workflow options to choose from when working with source control.
 
+### Process of a source control for API:
+    1 - Create a project directory, create and activate Virtual environment, install required packages to build application and freeze them into requirements.txt file.
+    2 - Create a git repository for your repository and add README.md file.
+    3 - Create a .gitignore file in the application folder to mention all files git should ignore when pushing to repository, this folder usually includes __pycache__, virtual environment, environment variable (sensitive information).
+    4 - Create a init to initialise and main.py (core code)
+    5 - Create environment variables to handle sensitive information, import variables in the main and init files. Add this file to .gitignore
+    6 - Create environment variables examples or sample files to tell other developers there's env variables in the project and they need to set them on their end.
+    7 - After creating all the necessary and main files for the application perform add . and push everything to main branch.
+    8 - Create a new folder/ files to create and define models, schemas and controllers to work on app features.
+    9 - Create a new branch that will handle features of the application such as authentication. The convention name for branches starts with the name feature, eg: feature/authentication, this indicates this branch works on specific feature.
+    It's a good idea to create a branch for each feature as it modularise the code even more.
+    10 - Make sure you are in the feature branch created, add, commit and push changes with meaningful messages as usual. First time you push code to new branch you will have to mention the branch name eg: git push -u branch_name 
+    11 - Always perform git status to be aware of modified files that hasn't been pushed into repository yet.
+    12 - Once application is working as expected and all testing has been done, perform pull request (this method merges the extra branches to the main branch).
+    13 - Compare and review codes in both branches and make sure there's no conflict. In case of a branch conflict, you need to git pull first, solve the conflict and then create pull request again.
+    14 - When there's no conflict and you are able to merge branches you will get a green light in the pull request window. In this window, you can add branch description, labels, reviewers and assignees (these are optional).
+    15 - After filling the information you can create the pull request, in the following page you will have information about commits performed in this branch, see changes performed in files, see conversation between colleagues, add rules required before merging branches and add comments or reviews.
+    16 - Once all requirements has been achieved and app is working as it should you can merge the pull request and confirm the merge.
+    17 - Once branch is merged, you will see an acknowledgement confirmation. There's an option to safely delete the branch or you can keep it.
+    18 - After pull request has been performed, you can see all the files under main branch.
+    19 - Back in VS Code, you'll need to run git pull to retrieve and view the latest changes from the remote repository.
+
+#### Screenshots of source control process
+![Example of trello source control](./screenshots/git1.png)
+![Example of source control merge](./screenshots/merge_eg.png)
+
+References: 
+
+Git (2019). About - Git. [online] Git-scm.com. Available at: https://git-scm.com/about.
+
+Atlassian (2019). What is version control. [online] Atlassian. Available at: https://www.atlassian.com/git/tutorials/what-is-version-control.
+‌
+Atlassian (n.d.). Git Merge | Atlassian Git Tutorial. [online] Atlassian. Available at: https://www.atlassian.com/git/tutorials/using-branches/git-merge.
+
+‌
 
 
 # Q5 - mark 6
