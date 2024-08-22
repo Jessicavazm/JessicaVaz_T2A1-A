@@ -1,5 +1,4 @@
 # Project - workbook (t2) Part A
-Submit a day or two days before to check for Turnitin. 
 
 # Q1
 The typical architecture of an API is designed to handle http requests such as get, post, patch and delete. Flask is lightweight yet powerful Python based framework that depends on Werkzeug (WSGI library), Jinja (for rendering the pages on server) and Click (for Flask commands lines and custom commands). All dependencies are installed automatically when you instal Flask. 
@@ -182,10 +181,8 @@ Atlassian (2019). What is version control. [online] Atlassian. Available at: htt
 Atlassian (n.d.). Git Merge | Atlassian Git Tutorial. [online] Atlassian. Available at: https://www.atlassian.com/git/tutorials/using-branches/git-merge.
 
 ‌
-
-
-# Q5 - mark 6
-API testing can be performed using testing tools such as Insomnia, Postman, SoapUI. Insomnia is the API we have been using in our API testing. Insonmia performs unit tests made by HTTP requests and it depends Mocha framework and Chai for assertions. Insomnia also supports authentication testing and another important aspect about this type of testing is the developer needs to know the expected outcome in order to determine API's efficiency.
+# Q5 
+API testing can be performed using testing tools such as Insomnia, Postman, SoapUI. Insomnia is the API we have been using in our API testing. Insonmia performs unit tests made by HTTP requests and it depends Mocha framework and Chai for assertions. Insomnia also supports authentication testing and another important aspect about this type of testing is the developer needs to know the expected outcome in order to determine API's efficiency. 
 There are few different types of HTTPS requests:
 - GET = Fetches data from resource
 - POST = Send data to the server to create or update a resource
@@ -196,16 +193,27 @@ There are few different types of HTTPS requests:
 - OPTIONS = Describes communications available
 - CUSTOM: Available to create a custom request
 
-Steps on how to perform API testing with Insomnia.
-- 
--
--
--
--
--
--
--
+#### Steps on how to perform API testing with Insomnia, testing authentication.
 
+- Perform `flask run` in API on terminal
+- In Insomnia dashboard create a new folder, and click on HTTP request
+- Choose the type of request, example: POST request
+- Write down URL, in our example we are using local host and port: 8080 we set in .flaskenv file.
+    localhost:8080/auth/login
+- In the request body, choose JSON type and write credentials.
+- After sending the request, on the right hand side you can see if your request has been successful or not. This part contains response code, time that request took to be performed and file size. You can also see how the response looks like in preview, see header info (meta-data), cookies, console and mock.
+- In case request is successful and credentials match, a JWT will be created and returned back in the response body to user. 
+- In case request is not successful, Insomnia displays an error message, error code and trace back to help developers fixing the bug.
+- To send authentication in the `post` request, click on `auth` tab, choose the type of authentication you want, and then paste auth code in the request body. Insomnia supports different types of auth including: Bearer Token (the one we have been using), Basic Auth, Digest Auth, OAuth 1.0, OAuth 2.0 and more.
+
+#### Common error codes
+    400 Bad Request: The request was malformed or invalid.
+    401 Unauthorized: Authentication is required and has failed or not been provided.
+    403 Forbidden: The server understood the request but refuses to authorize it.
+    404 Not Found: The requested resource could not be found.
+    500 Internal Server Error
+
+#### Examples of testing cases for error handling in login route and authentication route from Trello API.
 ![Example of registration testing](./screenshots/Insomnia1.png)
 ![Example of authentication testing](./screenshots/Insomnia2.png)
 
