@@ -148,26 +148,26 @@ Some of the benefits of source control include:
 - Branches can be used for trying out ideas, testing. Some companies prefer the idea of creating a branch for each feature of the application but there's plenty of other workflow options to choose from when working with source control.
 
 ### Process of a source control for API:
-    1 - Create a project directory, create and activate Virtual environment, install required packages to build application and freeze them into requirements.txt file.
-    2 - Create a git repository for your repository and add README.md file.
-    3 - Create a .gitignore file in the application folder to mention all files git should ignore when pushing to repository, this folder usually includes __pycache__, virtual environment, environment variable (sensitive information).
-    4 - Create a init to initialise and main.py (core code)
-    5 - Create environment variables to handle sensitive information, import variables in the main and init files. Add this file to .gitignore
-    6 - Create environment variables examples or sample files to tell other developers there's env variables in the project and they need to set them on their end.
-    7 - After creating all the necessary and main files for the application perform add . and push everything to main branch.
-    8 - Create a new folder/ files to create and define models, schemas and controllers to work on app features.
-    9 - Create a new branch that will handle features of the application such as authentication. The convention name for branches starts with the name feature, eg: feature/authentication, this indicates this branch works on specific feature.
-    It's a good idea to create a branch for each feature as it modularise the code even more.
-    10 - Make sure you are in the feature branch created, add, commit and push changes with meaningful messages as usual. First time you push code to new branch you will have to mention the branch name eg: git push -u branch_name 
-    11 - Always perform git status to be aware of modified files that hasn't been pushed into repository yet.
-    12 - Once application is working as expected and all testing has been done, perform pull request (this method merges the extra branches to the main branch).
-    13 - Compare and review codes in both branches and make sure there's no conflict. In case of a branch conflict, you need to git pull first, solve the conflict and then create pull request again.
-    14 - When there's no conflict and you are able to merge branches you will get a green light in the pull request window. In this window, you can add branch description, labels, reviewers and assignees (these are optional).
-    15 - After filling the information you can create the pull request, in the following page you will have information about commits performed in this branch, see changes performed in files, see conversation between colleagues, add rules required before merging branches and add comments or reviews.
-    16 - Once all requirements has been achieved and app is working as it should you can merge the pull request and confirm the merge.
-    17 - Once branch is merged, you will see an acknowledgement confirmation. There's an option to safely delete the branch or you can keep it.
-    18 - After pull request has been performed, you can see all the files under main branch.
-    19 - Back in VS Code, you'll need to run git pull to retrieve and view the latest changes from the remote repository.
+- Create a project directory, create and activate Virtual environment, install required packages to build application and freeze them into requirements.txt file.
+- Create a git repository for your repository and add README.md file.
+- Create a .gitignore file in the application folder to mention all files git should ignore when pushing to repository, this folder usually includes __pycache__, virtual environment, environment variable (sensitive information).
+- Create a init file to initialise things and main.py file which will contain the core code.
+- Create environment variables to handle sensitive information, import variables in the main and init files. Add this file to .gitignore
+- Create environment variables examples or sample files to tell other developers there's env variables in the project and they need to set them on their end.
+- After creating all the necessary and main files for the application perform add . and push everything to main branch.
+- Create a new folder/ files to create and define models, schemas and controllers to work on app features.
+- Create a new branch that will handle features of the application such as authentication. The convention name for branches starts with the name feature, eg: feature/authentication, this indicates this branch works on specific feature.
+It's a good idea to create a branch for each feature as it modularise the code even more.
+- Make sure you are in the feature branch created, add, commit and push changes with meaningful messages as usual. First time you push code to new branch you will have to mention the branch name eg: git push -u branch_name 
+- Always perform git status to be aware of modified files that hasn't been pushed into repository yet.
+- Once application is working as expected and all testing has been done, perform pull request (this method merges the extra branches to the main branch).
+- Compare and review codes in both branches and make sure there's no conflict. In case of a branch conflict, you need to git pull first, solve the conflict and then create pull request again.
+- When there's no conflict and you are able to merge branches you will get a green light in the pull request window. In this window, you can add branch description, labels, reviewers and assignees (these are optional).
+- After filling the information you can create the pull request, in the following page you will have information about commits performed in this branch, see changes performed in files, see conversation between colleagues, add rules required before merging branches and add comments or reviews.
+- Once all requirements has been achieved and app is working as it should you can merge the pull request and confirm the merge.
+- Once branch is merged, you will see an acknowledgement confirmation. There's an option to safely delete the branch or you can keep it.
+- After pull request has been performed, you can see all the files under main branch.
+- Back in VS Code, you'll need to run git pull to retrieve and view the latest changes from the remote repository.
 
 #### Screenshots of source control process
 ![Example of trello source control](./screenshots/git1.png)
@@ -194,7 +194,7 @@ CIA triad is an Information system security model that has 3 core principles: Co
 
 - Confidentiality: 
 
-It ensures data is only accessible to view and edit to authorised users by implementing control's measures such as authentication, encryption and data masking. Authentication method ensures user's identification, it can be done through username and password, tokens, biometric identifiers such as fingerprint or facial and plenty more. Encryption methods ensures data is secured in the transit process by making it unreadable. When you encrypt a file, it generates a key which is only granted to authorised users. With this key, users are able to convert message to the original format and read it. Masking is another method that involves replacing the original data with a fictional data. Monitoring data is also another important process in the confidentiality method. Organisations can use applications such as Intrusion detection system (IDS) and Intrusion prevention system (IPS) to prevent and report any malicious activity. Another powerful tool is to report security incidents, this can also help to identify any security breach that might occur in the future. For this reason, employees should be trained and be aware of security breaches types and best practices to be able to identify any future problem and understand how to handle data securely.
+It ensures data is only accessible to view and edit to authorised users by implementing control's measures such as authentication, encryption and data masking. Authentication method ensures user's identification, it can be done through username and password, tokens, biometric identifiers such as fingerprint or facial and plenty more. Encryption methods ensures data is secured in the transit process by making it unreadable. When you encrypt a file, it generates a key which is only granted to authorised users. With the correct key, users are able to perform further operation which requires authentication before hand. Masking is another method that involves replacing the original data with a fictional data. Monitoring data is another crucial process in the confidentiality method. Organisations can use applications such as Intrusion detection system (IDS) and Intrusion prevention system (IPS) to prevent and report any malicious activity. Another powerful tool is to report security incidents, this can also help to identify any security breach that might occur in the future. For this reason, employees should be trained on the types of security breaches and best practices so they can identify potential problems in the future and understand how to handle data securely.
 
 - Integrity: 
 
@@ -214,12 +214,69 @@ Hashemi-Pour, C. (2023). What is the CIA Triad? Definition, Explanation and Exam
 
 
 # Q7 - mark 12
-Provide an overview of what would need to be done within an API project to implement at least one of the principles explained in Question 6.
+To implement the component `Confidentiality` in an API, we can use create an authorization controller which will handle user's authentication, make use of Bcrypt to store hashed passwords in tables and environment variables to handle sensitive information from JWT and Database URL.
+When it comes to database, it's important to exclude sensitive info when retrieving fields in Schemas. This can be done by passing exclude in the Schemas instances.
+    
+    class UserSchema(ma.Schema):
+        class Meta:
+            #Fields
+            fields = ("id", "name", "email", "password", "is_admin")
 
-- Component `Confidentiality`
+    
+    user_schema = UserSchema(exclude=["password"])
+     
+    users_schema = UserSchema(many=True, exclude=["password"])
 
 
+- Example of B.crypt being used to hash user's password and how the hashed password looks like in a DB.
 
+User(
+            email = "admin@email.com",
+            password = bcrypt.generate_password_hash("123456").decode("utf-8"),
+            is_admin = True
+)
+
+![Example of Postgresql](./screenshots/postgresql.png)
+
+
+Example of an auth controller routes that register and authenticate users. For this example, JWTManager and Bcrypt packages needs to be imported to hash password and create JWT. <br>
+Important steps for registering User:
+- Request is used to retrieve information from data body
+- Create an instance of the User model, fetch fields and store data in User object.
+- Hash password and store it in a variable, import Bcrypt from init file to execute this.
+- Add and commit to DB
+- Return acknowledgment message
+
+Important steps for authenticating user:
+- Fetch data from request body.
+- Create a stmt to find User with provided email and password and execute stmt.
+- If user exist, check_password_hash method checks hash value from request body against stored hash in database.
+- If everything matches, use create_access_token method to create a JWT and give it an identity, in this example user id is used. Convert to string since identity only accept string values.
+- Use timedelta method to set an expiring time for security purposes.
+- Return an acknowledgment message back to user with user information such as email and token.
+- Token can be requested for further operations such as edit or delete tables.
+
+![Example of Register route](./screenshots/auth2.png)
+
+![Example of Login route](./screenshots/auth_example.png)
+
+
+Another example of confidentiality is to use environment variables such as `.env` to handle sensitive information when creating API and connecting API to database. Environment variables can be called in the main.py and should be excluded of the source control. In this example, .env stores sensitive URL DB info and JWT secret key. To tell other developers about existing variables, we can create an example or sample of environment variables. To fetch these variables in main.py, we need to import OS.
+
+Example of .env file
+    DATABASE_URL = postgresql+psycopg2://trello_dev:123456@localhost:5432/trello_db
+    JWT_SECRET_KEY = "secret"
+
+Example of .env.example or sample
+    DATABASE_URL =
+    JWT_SECRET_KEY = 
+    
+In main.py file we can call the env variables with the help of the OS method, this method allows us to fetch those variables from the .env file = `os.environ.get("variable_name)`:
+
+![Example of environment variables](./screenshots/env_variables.png)
+
+References:
+Week 4 and 5 Trello API Zoom classes
 
 # Q8 - mark 12 (second main question)
 Explain the legal obligations that developers of a social media website or social media application would have in regards to handling user data, with reference to any applicable laws or acts.
