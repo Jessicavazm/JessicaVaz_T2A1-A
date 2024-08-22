@@ -185,10 +185,36 @@ Atlassian (n.d.). Git Merge | Atlassian Git Tutorial. [online] Atlassian. Availa
 
 
 # Q5 - mark 6
-Provide an overview and description of a standard testing process for an API project.
+API testing can be performed using testing tools such as Insomnia, Postman, SoapUI. Insomnia is the API we have been using in our API testing. Insonmia performs unit tests made by HTTP requests and it depends Mocha framework and Chai for assertions. Insomnia also supports authentication testing and another important aspect about this type of testing is the developer needs to know the expected outcome in order to determine API's efficiency.
+There are few different types of HTTPS requests:
+- GET = Fetches data from resource
+- POST = Send data to the server to create or update a resource
+- PUT = Overwrites the whole resource
+- PATCH = Updates specific patch in the resource
+- DELETE = Delete the resource
+- HEAD = Only fetch the data from the headers(meta-data)
+- OPTIONS = Describes communications available
+- CUSTOM: Available to create a custom request
 
+Steps on how to perform API testing with Insomnia.
+- 
+-
+-
+-
+-
+-
+-
+-
 
+![Example of registration testing](./screenshots/Insomnia1.png)
+![Example of authentication testing](./screenshots/Insomnia2.png)
 
+References:
+Coder Academy APR-STD Trello_API 
+
+Insomnia.rest. (2021). Unit Testing | Insomnia Docs. [online] Available at: https://docs.insomnia.rest/insomnia/unit-testing [Accessed 22 Aug. 2024].
+
+‌
 # Q6 
 CIA triad is an Information system security model that has 3 core principles: Confidentiality, Integrity and Availability. This model is widely used by organisations and it's main purpose is to keep data secure. The three components corelate to each other.
 
@@ -282,7 +308,8 @@ Week 4 and 5 Trello API Zoom classes
 Explain the legal obligations that developers of a social media website or social media application would have in regards to handling user data, with reference to any applicable laws or acts.
 
 
-
+REF:
+https://developer.atlassian.com/platform/marketplace/data-privacy-guidelines/
 # Q9 - mark 6
 Describe the structural aspects of the relational database model. Your description should include information about the structure in which data is stored and how relations are represented in that structure.
 
