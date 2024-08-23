@@ -98,7 +98,7 @@ PostgreSQL is one of the most older database systems and it's extremely popular 
 
 PostgreSQL is currently on version 16, with version 16.4 released on August 8, 2024.
 
-### Pros of PostgreSQL
+#### Pros of PostgreSQL
 - It complies with ACID (Atomicity, Consistency, Isolation and Durability) since 2001, these four pillars when applied to database guarantees the data stays consistent and preserves data integrity.
 - Use of PK(Primary key), FK(Foreign key) and constraints also ensures data integrity.
 - It complies with SQL standards which helps when migrating from other SQL databases.
@@ -118,7 +118,7 @@ PostgreSQL is currently on version 16, with version 16.4 released on August 8, 2
 - PostgreSQL supports many different types of authentication such as GSSAPI, SSPI, LDAP, SCRAM-SHA-256 and Certificate. Pgcrypto extension can also be used in PostgreSQL to perform hashing and encryption to handle sensitive data and ensure data security.
 - Suitable for cloud environments.
 
-### Cons of PostgreSQL
+#### Cons of PostgreSQL
 It appears that PostgreSQL has relatively few downsides. Here are some potential drawbacks I’ve found:
 - Since PostgreSQL is an open source and not owned by a particular organisation, the database software does not carry liability for damages or offers warranty of any kind.
 - Due to it's vast number of functionalities which is also considered a strong feature, it can be intimidating to users who are new to the system or users who don't have much experience with relational databases systems.
@@ -232,7 +232,7 @@ Insomnia.rest. (2021). Unit Testing | Insomnia Docs. [online] Available at: http
 # Q6 
 CIA triad is an Information system security model that has 3 core principles: Confidentiality, Integrity and Availability. This model is widely used by organisations and it's main purpose is to keep data secure. The three components corelate to each other.
 
-- Confidentiality: 
+#### Confidentiality: 
 
 It ensures data is only accessible to view and edit to authorised users by implementing control's measures such as authentication, encryption and data masking. Authentication method ensures user's identification, it can be done through username and password, tokens, biometric identifiers such as fingerprint or facial and plenty more. 
 
@@ -240,7 +240,7 @@ Encryption methods ensures data is secured in the transit process by making it u
 
 Organisations can use applications such as Intrusion detection system (IDS) and Intrusion prevention system (IPS) to prevent and report any malicious activity. Another powerful tool is to report security incidents, this can also help to identify any security breach that might occur in the future. For this reason, employees should be trained on the types of security breaches and best practices so they can identify potential problems in the future and understand how to handle data securely.
 
-- Integrity: 
+#### Integrity: 
 
 This component is responsible for data's integrity during transit or rest processes. Some techniques to help with integrity are checksum and hash functions. Checksum is unique value that is generated after processing the original data, in case of an accidental error, a different checksum will be generated indicating the data has been altered. Hash function converts a file to fixed strings of bytes(Hexadecimal). Like Checksum, the Hash function produces a unique value that is used to check if data has been modified.
 
@@ -248,7 +248,7 @@ Version control system such as GIT is also used as a method to ensure data integ
 
 System and data redundancy are another important measures organisations can use to make sure their data is complete and operations can be maintain in case of failure/loss. Often backups and multiple copies in different systems or locations can also be beneficial to ensure if their suffer an cyber attack they don't have a total loss of data.
 
-- Availability:
+#### Availability:
 
 This component ensures the data is available all the time to authorised users for viewing and modifications when it needed. To ensure maximum availability, the system must be safe from malicious activities and data should be stored/managed safely. 
 
@@ -277,7 +277,7 @@ When it comes to database, it's important to exclude sensitive info when retriev
     users_schema = UserSchema(many=True, exclude=["password"])
 
 
-- Example of B.crypt being used to hash user's password and how the hashed password looks like in a DB.
+Example of B.crypt being used to hash user's password and how the hashed password looks like in a DB.
 
     User(
             email = "admin@email.com",
@@ -330,10 +330,12 @@ In main.py file we can call the env variables with the help of the OS method, th
 References:
 Week 4 and 5 Trello API Zoom classes
 
-# Q8 - mark 12 (second main question)
-Explain the legal obligations that developers of a social media website or social media application would have in regards to handling user data, with reference to any applicable laws or acts.
+# Q8 
 
-Developers should be aware and comply with legal obligations handling users data. These laws and acts request strong security practices to ensure data is held secure and risk free.
+Developers should be aware and comply with legal obligations handling users data. There are acts and obligations in place to ensure individuals information is being held safely and secured. Acts might be different from country to country however they enforce the same thing: data security. 
+
+Being aware of obligations helps developers understand the responsibilities they have towards the individuals and avoid any possible legal action or penalty. They are required to implement and enforce security in their applications, ensure user acknowledgment when requesting data and clear information on how data will be used.
+Developers should also review and update their applications to make sure their are complying with obligations and they also have the obligation to inform users in case of data breach events such as data misusage or leakage.
 
 ### The Australian Privacy Principles(APPs) - Privacy Act 1988
 
@@ -358,10 +360,30 @@ Under this act, individuals can choose to not disclose personal information, hav
     - Credit reporting business
     - Business that sells/ purchase personal information
 
-There a set of principles that APP entities should follow when handling personal data. These rules ensure entities handles data safely and only necessary data is collected. The principles shares the steps before entities share data overseas, what to do with unsolicited data acquired, conditions required for organisations data usage for marketing purposes, steps to protect data from different case scenarios such as misuse, loss or cyber attacks. Obligations entities have towards individuals including data collection notification, data correction, records of requested access to data, destroy data in certain circumstances (purpose has been achieved and data is not longer needed).
+There a set of principles that APP entities should follow when handling personal data. These rules ensure entities handles data safely and only necessary data is collected. 
+
+The principles shares the steps before entities share data overseas, what to do with unsolicited data acquired, conditions required for organisations data usage for marketing purposes, steps to protect data from different case scenarios such as misuse, loss or cyber attacks. Obligations entities have towards individuals including data collection notification, data correction, records of requested access to data, destroy data in certain circumstances (purpose has been achieved and data is not longer needed).
+
+Breaching the Privacy Act can result in severe penalties including civil penalty up to $2,500,000 for an individual or up to $50,000,000 for an organisation. These are the maximum penalty for serious offenses and they are described in Privacy Act section 13G. Affected individuals have the right to sue individual/ organisations for compensation.
 
 #### Photo of Australian Privacy Principles from OAIC.GOV.AU
 ![Australian Privacy Principles from OAIC](./screenshots/APprinciples.png)
+
+### Spam Act 2003 Australia
+
+Spam Act was created in 12/12/2003 and it regulates commercial electronic mails. Just like the Privacy Act,the main penalty for breaching Spam Act is civil penalty.
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 References:
@@ -371,6 +393,9 @@ Office of the Australian Information Commissioner (2024). The Privacy Act. [onli
 
 developer.atlassian.com. (n.d.). Data privacy guidelines for developers. [online] Available at: https://developer.atlassian.com/platform/marketplace/data-privacy-guidelines/.
 
+scheme =AGLSTERMS. AglsAgent; corporateName=Infrastructure, T. (2016). Spam Act 2003. [online] www.legislation.gov.au. Available at: https://www.legislation.gov.au/C2004A01214/latest/text.
+
+‌
 # Q9 - mark 6
 Describe the structural aspects of the relational database model. Your description should include information about the structure in which data is stored and how relations are represented in that structure.
 
