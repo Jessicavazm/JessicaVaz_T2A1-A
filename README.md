@@ -371,19 +371,17 @@ Breaching the Privacy Act can result in severe penalties including civil penalty
 
 ### Spam Act 2003 Australia
 
-Spam Act was created in 12/12/2003 and it regulates commercial electronic mails. Just like the Privacy Act,the main penalty for breaching Spam Act is civil penalty.
+Spam ACT 2003 was created in December 2003 in Australia and enforced by Australian Communications Authority however in 2005 it became the Australian Communications and Media Authority. The act regulates commercial electronic mails. Commercial electronic mail can be in text form, email, photos, audio format, forms, music or data.
 
+This act outlines that commercial electronic mails should always include information of individual or organisation that authorised this email be to sent and mails should not be sent without consent. There are two types of consents: express and inferred. Consents can be gained through forms, face to face, phone and ticking a box on a website consenting personal information for e-marketing or when when signing up for a service. 
 
+Every mail should contains sender information such as individual or organisation name,
+contact details and it should give the receiver the option to opt out from receiving messages or marketing mail. Companies have until have 5 days to honour request from individuals to opt out, and can not charge to proceed with request.
+For organisations their ABN (Australia Business number) is also required in electronic mail.
 
+Address harvesting applications (softwares that compile electronic addresses) should not be used or supplied to other organisations. 
 
-
-
-
-
-
-
-
-
+Failing to comply with legal obligations can result in civil penalties and injunctions. Penalties depends on breach severity, damage caused as result of the contravention, whether organisation or individual have prior records showing previous breaches. 
 
 
 References:
@@ -394,6 +392,8 @@ Office of the Australian Information Commissioner (2024). The Privacy Act. [onli
 developer.atlassian.com. (n.d.). Data privacy guidelines for developers. [online] Available at: https://developer.atlassian.com/platform/marketplace/data-privacy-guidelines/.
 
 scheme =AGLSTERMS. AglsAgent; corporateName=Infrastructure, T. (2016). Spam Act 2003. [online] www.legislation.gov.au. Available at: https://www.legislation.gov.au/C2004A01214/latest/text.
+
+Australian Communications and Media Authority (2019). Spam Act | ACMA. [online] Acma.gov.au. Available at: https://www.acma.gov.au/avoid-sending-spam.
 
 ‌
 # Q9 - mark 6
