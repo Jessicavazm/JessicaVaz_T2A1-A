@@ -28,7 +28,7 @@ The typical architecture of an API is designed to handle http requests such as g
 - Models folder
     - In this folder, you can have a file for model and another file for schema (helpful in big projects for more organisation) or you can have model and the schema in one file such as in the example provided as a reference.
     - Model needs to import from init the instance from SQLAlchemy create the table and define table.
-    - This file contains a class which creates a table and defines the attributes (columns values and value types), the structure is inherited from SQLALchemy. Variable __tablename__ sets the name of table in Database.
+    - This file contains a class which creates a table and defines the attributes (columns values and value types), the structure is inherited from SQLALchemy. Variable tablename sets the name of table in Database.
     - Schema Class is created with a marshmallow extension to serialise and deserialise data into Python readable data and vice and versa. First, the instance from marshmallow needs to be imported from init.py for this process to happen. This process ensures the request can be received by the API, and the API can send back responses to it's requests.
     - Class Meta defines what fielders will be included in serialisation/deserialisation.
     - Schemas objects are created to handle single or multiple items when performing operations on data. Exclusion of sensitive data is performed using `exclude=[]` passed in the object's parameter.
@@ -92,7 +92,10 @@ GeeksforGeeks. (2023). Flask Tutorial. [online] Available at: https://www.geeksf
 # Q2 
 
 ## PostgreSQL
-PostgreSQL was created back in 1986 at the University of California, Berkeley. Originally the system was named POSTGRES in relation to the Ingres database which was also developed in the same university. Later on, in 1996 the project was renamed from Postgres to PostgreSQL to reflect the support to SQL (Structure query language). The project was created under the professor Michael Stone breaker. PostgreSQL is one of the most older database systems and it's extremely popular due to it's reliability and architecture. It's an open source database system which means it's not owned by a single company or owner and source code can be accessed by anyone. The database system is managed by a group of developers and volunteers called PostgreSQL Global Development Group. 
+PostgreSQL was created back in 1986 at the University of California, Berkeley. Originally the system was named POSTGRES in relation to the Ingres database which was also developed in the same university. Later on, in 1996 the project was renamed from Postgres to PostgreSQL to reflect the support to SQL (Structure query language). The project was created under the professor Michael Stone breaker. 
+
+PostgreSQL is one of the most older database systems and it's extremely popular due to it's reliability and architecture. It's an open source database system which means it's not owned by a single company or owner and source code can be accessed by anyone. The database system is managed by a group of developers and volunteers called PostgreSQL Global Development Group. 
+
 PostgreSQL is currently on version 16, with version 16.4 released on August 8, 2024.
 
 ### Pros of PostgreSQL
@@ -138,9 +141,11 @@ Discuss an implementation of an Agile project management methodology for an API 
 Agile Kanban
 
 
-
 # Q4 
-Source Control is a crucial aspect of the API development process, offering numerous benefits. It helps track changes made to application, facilitates collaboration among developers and ensures smooth deployment. One of the most popular source control system is GIT, it's free and open source. Git can be used from small to bigger projects. The example I'm going to give uses git for the control system. 
+Source Control is a crucial aspect of the API development process, offering numerous benefits. It helps track changes made to application, facilitates collaboration among developers and ensures smooth deployment. 
+
+One of the most popular source control system is GIT, it's free and open source. Git can be used from small to bigger projects. The example I'm going to give uses git for the control system. 
+
 Some of the benefits of source control include:
 - All changes to code are tracked including edition, deletion and branch merging. The tracking history also includes who performed the change, day/ time and comments about why change has been performed. Track history is very important because when application needs to be improved or bugs need to be fixed, developers can refer back to track history which allows them improve application faster.
 - Branches is another powerful feature that allows developers to work on features independently without conflicting with other branches. Once all changes has been made, testing has been done and application is working as expect, developers can merge branches and delete the extra branches once they have been merged into the main branch (this step is optional). 
@@ -149,7 +154,7 @@ Some of the benefits of source control include:
 ### Process of a source control for API:
 - Create a project directory, create and activate Virtual environment, install required packages to build application and freeze them into requirements.txt file.
 - Create a git repository for your repository and add README.md file.
-- Create a .gitignore file in the application folder to mention all files git should ignore when pushing to repository, this folder usually includes __pycache__, virtual environment, environment variable (sensitive information).
+- Create a .gitignore file in the application folder to mention all files git should ignore when pushing to repository, this folder usually includes pycache, virtual environment, environment variable (sensitive information).
 - Create a init file to initialise things and main.py file which will contain the core code.
 - Create environment variables to handle sensitive information, import variables in the main and init files. Add this file to .gitignore
 - Create environment variables examples or sample files to tell other developers there's env variables in the project and they need to set them on their end.
@@ -183,6 +188,7 @@ Atlassian (n.d.). Git Merge | Atlassian Git Tutorial. [online] Atlassian. Availa
 ‌
 # Q5 
 API testing can be performed using testing tools such as Insomnia, Postman, SoapUI. Insomnia is the API we have been using in our API testing. Insonmia performs unit tests made by HTTP requests and it depends Mocha framework and Chai for assertions. Insomnia also supports authentication testing and another important aspect about this type of testing is the developer needs to know the expected outcome in order to determine API's efficiency. 
+
 There are few different types of HTTPS requests:
 - GET = Fetches data from resource
 - POST = Send data to the server to create or update a resource
@@ -228,17 +234,27 @@ CIA triad is an Information system security model that has 3 core principles: Co
 
 - Confidentiality: 
 
-It ensures data is only accessible to view and edit to authorised users by implementing control's measures such as authentication, encryption and data masking. Authentication method ensures user's identification, it can be done through username and password, tokens, biometric identifiers such as fingerprint or facial and plenty more. Encryption methods ensures data is secured in the transit process by making it unreadable. When you encrypt a file, it generates a key which is only granted to authorised users. With the correct key, users are able to perform further operation which requires authentication before hand. Masking is another method that involves replacing the original data with a fictional data. Monitoring data is another crucial process in the confidentiality method. Organisations can use applications such as Intrusion detection system (IDS) and Intrusion prevention system (IPS) to prevent and report any malicious activity. Another powerful tool is to report security incidents, this can also help to identify any security breach that might occur in the future. For this reason, employees should be trained on the types of security breaches and best practices so they can identify potential problems in the future and understand how to handle data securely.
+It ensures data is only accessible to view and edit to authorised users by implementing control's measures such as authentication, encryption and data masking. Authentication method ensures user's identification, it can be done through username and password, tokens, biometric identifiers such as fingerprint or facial and plenty more. 
+
+Encryption methods ensures data is secured in the transit process by making it unreadable. When you encrypt a file, it generates a key which is only granted to authorised users. With the correct key, users are able to perform further operation which requires authentication before hand. Masking is another method that involves replacing the original data with a fictional data. Monitoring data is another crucial process in the confidentiality method. 
+
+Organisations can use applications such as Intrusion detection system (IDS) and Intrusion prevention system (IPS) to prevent and report any malicious activity. Another powerful tool is to report security incidents, this can also help to identify any security breach that might occur in the future. For this reason, employees should be trained on the types of security breaches and best practices so they can identify potential problems in the future and understand how to handle data securely.
 
 - Integrity: 
 
-This component is responsible for data's integrity during transit or rest processes. Some techniques to help with integrity are checksum and hash functions. Checksum is unique value that is generated after processing the original data, in case of an accidental error, a different checksum will be generated indicating the data has been altered. Hash function converts a file to fixed strings of bytes(Hexadecimal). Like Checksum, the Hash function produces a unique value that is used to check if data has been modified.<br>
+This component is responsible for data's integrity during transit or rest processes. Some techniques to help with integrity are checksum and hash functions. Checksum is unique value that is generated after processing the original data, in case of an accidental error, a different checksum will be generated indicating the data has been altered. Hash function converts a file to fixed strings of bytes(Hexadecimal). Like Checksum, the Hash function produces a unique value that is used to check if data has been modified.
+
 Version control system such as GIT is also used as a method to ensure data integrity, allowing users to track all changes and restore previous version if needed.
+
 System and data redundancy are another important measures organisations can use to make sure their data is complete and operations can be maintain in case of failure/loss. Often backups and multiple copies in different systems or locations can also be beneficial to ensure if their suffer an cyber attack they don't have a total loss of data.
 
 - Availability:
 
-This component ensures the data is available all the time to authorised users for viewing and modifications when it needed. To ensure maximum availability, the system must be safe from malicious activities and data should be stored/managed safely. This component goes side by side with confidentiality and integrity components. Some measures to make this happen includes conducting regular system maintenance updates, implements measures to protect against malicious attacks, make use of data and system redundancy, have a recovery plan, use of Load balancers to distribute incoming traffic across multiple servers and preventing one server to become overwhelmed resulting in better performance. Load balance softwares includes HAProxy and NGINX or Cloud-based includes AWS Elastic and Azure. Recover plans can include risk assessments to identify threats and potential risks, and recovery procedures to indicate what steps to take in case of data/ system disruption.
+This component ensures the data is available all the time to authorised users for viewing and modifications when it needed. To ensure maximum availability, the system must be safe from malicious activities and data should be stored/managed safely. 
+
+Availability component goes side by side with confidentiality and integrity components. Some measures to make this happen includes conducting regular system maintenance updates, implements measures to protect against malicious attacks, make use of data and system redundancy, have a recovery plan, use of Load balancers to distribute incoming traffic across multiple servers and preventing one server to become overwhelmed resulting in better performance. 
+
+Load balance softwares includes HAProxy and NGINX or Cloud-based includes AWS Elastic and Azure. Recover plans can include risk assessments to identify threats and potential risks, and recovery procedures to indicate what steps to take in case of data/ system disruption.
 
 References:
 
@@ -247,33 +263,33 @@ Infosecurityeurope.com. (2024). What are the 3 principles of Information Securit
 Hashemi-Pour, C. (2023). What is the CIA Triad? Definition, Explanation and Examples. [online] TechTarget. Available at: https://www.techtarget.com/whatis/definition/Confidentiality-integrity-and-availability-CIA.
 
 
-# Q7 - mark 12
+# Q7
 To implement the component `Confidentiality` in an API, we can use create an authorization controller which will handle user's authentication, make use of Bcrypt to store hashed passwords in tables and environment variables to handle sensitive information from JWT and Database URL.
+
 When it comes to database, it's important to exclude sensitive info when retrieving fields in Schemas. This can be done by passing exclude in the Schemas instances.
     
     class UserSchema(ma.Schema):
         class Meta:
-            #Fields
             fields = ("id", "name", "email", "password", "is_admin")
-
-    
+        
     user_schema = UserSchema(exclude=["password"])
-     
+        
     users_schema = UserSchema(many=True, exclude=["password"])
 
 
 - Example of B.crypt being used to hash user's password and how the hashed password looks like in a DB.
 
-User(
+    User(
             email = "admin@email.com",
             password = bcrypt.generate_password_hash("123456").decode("utf-8"),
             is_admin = True
-)
+        )
 
 ![Example of Postgresql](./screenshots/postgresql.png)
 
 
-Example of an auth controller routes that register and authenticate users. For this example, JWTManager and Bcrypt packages needs to be imported to hash password and create JWT. <br>
+Example of an auth controller routes that register and authenticate users. For this example, JWTManager and Bcrypt packages needs to be imported to hash password and create JWT. 
+
 Important steps for registering User:
 - Request is used to retrieve information from data body
 - Create an instance of the User model, fetch fields and store data in User object.
@@ -295,7 +311,9 @@ Important steps for authenticating user:
 ![Example of Login route](./screenshots/auth_example.png)
 
 
-Another example of confidentiality is to use environment variables such as `.env` to handle sensitive information when creating API and connecting API to database. Environment variables can be called in the main.py and should be excluded of the source control. In this example, .env stores sensitive URL DB info and JWT secret key. To tell other developers about existing variables, we can create an example or sample of environment variables. To fetch these variables in main.py, we need to import OS.
+Another example of confidentiality is to use environment variables such as `.env` to handle sensitive information when creating API and connecting API to database. Environment variables can be called in the main.py file and should be excluded of the source control. 
+
+In this example, .env stores sensitive URL DB info and JWT secret key. To tell other developers about existing variables, we can create an example or sample of environment variables. To fetch these variables in main.py, we need to import OS.
 
 Example of .env file
     DATABASE_URL = postgresql+psycopg2://trello_dev:123456@localhost:5432/trello_db
@@ -315,9 +333,44 @@ Week 4 and 5 Trello API Zoom classes
 # Q8 - mark 12 (second main question)
 Explain the legal obligations that developers of a social media website or social media application would have in regards to handling user data, with reference to any applicable laws or acts.
 
+Developers should be aware and comply with legal obligations handling users data. These laws and acts request strong security practices to ensure data is held secure and risk free.
 
-REF:
-https://developer.atlassian.com/platform/marketplace/data-privacy-guidelines/
+### The Australian Privacy Principles(APPs) - Privacy Act 1988
+
+Privacy Act was created in 14 Dec 1988 and started back in 1989 in Australia to protect individuals and how their personal data are processed by Australia government agencies and private organisations with turnover of $3 million (there is some exceptions for smaller organisations). 
+
+Privacy Act is the main legislation in Australia for data protection and it gives the individuals the right to know when data is being collected, who will have access to it, how it will be used and ensures their data is safe.
+
+Personal information and sensitive information can include: name, phone number, dob, biometrics, IP addresses, credit information, employment records, photos,location, criminal and health records, sexual orientation, political associations, religious beliefs, ethnic origin. Privacy Act does not cover anyone who has been deceased. The right to privacy is not absolute, which means other concerns are also taken into consideration, these concerns comes into consideration when safety and justice matters are involved. 
+
+Under this act, individuals can choose to not disclose personal information, have access to their personal information (health, credit records), have the right to decide if they wish to not receive marketing. Individuals also have the right to make complaints about organisations regulated under Privacy Act in case the individual believes their data has been mishandled and the company has breached the security responsibilities they have towards individuals. 
+
+#### Companies under Privacy Act 1998
+- Australian Government 
+- Norfolk Island administration
+- Organisations (individual, body corporate, partnership, unincorporated association, trust) with annual turnover of $3 million or more.
+- Small business (annual turnover of $3 million or less) including: 
+    - Private health service provider including gym, childcare, physiotherapy clinic, medical practitioner
+    - Employee registered under Fair Work
+    - Business registered with Consumer data right
+    - Business listed under Privacy Regulation 2013
+    - Contracted service provider for Australian government 
+    - Credit reporting business
+    - Business that sells/ purchase personal information
+
+There a set of principles that APP entities should follow when handling personal data. These rules ensure entities handles data safely and only necessary data is collected. The principles shares the steps before entities share data overseas, what to do with unsolicited data acquired, conditions required for organisations data usage for marketing purposes, steps to protect data from different case scenarios such as misuse, loss or cyber attacks. Obligations entities have towards individuals including data collection notification, data correction, records of requested access to data, destroy data in certain circumstances (purpose has been achieved and data is not longer needed).
+
+#### Photo of Australian Privacy Principles from OAIC.GOV.AU
+![Australian Privacy Principles from OAIC](./screenshots/APprinciples.png)
+
+
+References:
+Australian Privacy Principles -a summary for APP entities from 12 March 2014. (n.d.). Available at: https://www.oaic.gov.au/__data/assets/pdf_file/0020/1289/app-quick-reference-tool.pdf.
+
+Office of the Australian Information Commissioner (2024). The Privacy Act. [online] OAIC. Available at: https://www.oaic.gov.au/privacy/privacy-legislation/the-privacy-act.
+
+developer.atlassian.com. (n.d.). Data privacy guidelines for developers. [online] Available at: https://developer.atlassian.com/platform/marketplace/data-privacy-guidelines/.
+
 # Q9 - mark 6
 Describe the structural aspects of the relational database model. Your description should include information about the structure in which data is stored and how relations are represented in that structure.
 
