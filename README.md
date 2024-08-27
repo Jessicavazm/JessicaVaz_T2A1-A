@@ -135,11 +135,60 @@ Dhruv, S. (2019). Pros and Cons of using PostgreSQL for Application Development.
 
 Dhruv, S. (2019). Pros and Cons of using PostgreSQL for Application Development. [online] Aalpha. Available at: https://www.aalpha.net/blog/pros-and-cons-of-using-postgresql-for-application-development/. 
 
-# Q3 - mark 6
-Discuss an implementation of an Agile project management methodology for an API project.
+# Q3 
 
-Agile Kanban
+Agile methodology involves going back to goals and reviewing them to keep improving. Agile breaks down a big project into smaller parts so developers can work in these smaller parts with ease.
 
+In the Trello API, Agile can help organise and manage the creation of foundational files needed to link the API to the database, as well as to set up models, schemas, routes, and controllers.
+
+Ways to implement agile into `Trello API` project:
+
+### User Stories 
+
+User stories are used to tell the developers what problem you are trying to solve and what requirements you product needs. Bellow is an user stories example for the Trello API we have building in class.
+
+- As a customer, I want to be able to create cards, so I won't need to memorize important information.
+- As a customer, I want have my cards saved, so the next time I won't need to rewrite then again.
+- As a customer, I want to a function where time and date is added to card, so I can add those functions to my cards.
+- As a customer, I would like to delete cards that are no longer needed, so I won't be confused.
+- As a customer, I want to move cards between priority lists, so I know what I need to focus first.
+- As a customer, I would like to add comments to cards, so I can directly provide updates on cards.
+
+### Kanban
+
+Kanban is a visual tool that allows everybody to see all tasks and how they are progressing. Kanban is usually revisited towards the end of certain phrases or sprits. In our Trello API, Kanban could be visited after completing each controller or models/schemas. Bellow is an example I have created for the Trello API.
+
+![Example of Kanban tool](./screenshots/Kanban.png)
+
+### Sprints, Sprint Retrospectives and Task Prioritisation
+
+Sprints have defined properties such as task duration, `To do` and `In progress` lists, and the task's ownership.
+- Create initial APP files, install required packages, set environment variables and connect API to Database, duration: 3 days, ownership: Jessica
+- Create Trello's ER Diagram, duration: 1 week, ownership: Aamod
+- Create Models and Schemas, duration: 2 weeks, ownership: Yrina
+- Create Controllers and Routes, duration: 2 weeks, ownership: Alex
+- Run unit tests on Insomnia, duration: 3 days, ownership: Jessica
+
+Sprints retrospectives is also a powerful tool to check with the team and see the project's progress. This method helps the team to understand what has been successful, what areas needs improvement and what areas will be prioritized in the next sprint.
+- Initial files has been created and DB connects to API without any issues
+- CLI controller has been performing commands well 
+- Auth Controller needs attention in regards to error handling
+- Auth Controllers will be prioritized in the next spring
+
+Task prioritisation defines what task comes first and what are dependent-tasks, levels of priorities and required hours for task development. Example of Trello Task prioritisation:
+- High priority: 
+    Initial files: APP directory, virtual environment, required packages , main.py, init file and env variables 
+- High priority:
+    Create models and Schemas
+- High Priority: 
+    Create Controllers and routes
+- High Priority:
+    Insomnia Tests
+- High Priority:
+    Git commits and pushes
+
+References: 
+TRELLO API project we are currently working on, and from `Intro to Agile` T1W2 material from ED.
 
 # Q4 
 Source Control is a crucial aspect of the API development process, offering numerous benefits. It helps track changes made to application, facilitates collaboration among developers and ensures smooth deployment. 
@@ -371,31 +420,34 @@ Breaching the Privacy Act can result in severe penalties including civil penalty
 
 ### Spam Act 2003 Australia
 
-Spam ACT 2003 was created in December 2003 in Australia and enforced by Australian Communications Authority however in 2005 it became the Australian Communications and Media Authority. The act regulates commercial electronic mails. Commercial electronic mail can be in text form, email, photos, audio format, forms, music or data.
+Spam ACT 2003 was created in December 2003 in Australia and enforced by Australian Communications Authority however in 2005 it became the Australian Communications and Media Authority. The act regulates commercial electronic mails. Commercial electronic mail can be in text format, email, photos, audio format, forms, music or data.
 
 This act outlines that commercial electronic mails should always include information of individual or organisation that authorised this email be to sent and mails should not be sent without consent. There are two types of consents: express and inferred. Consents can be gained through forms, face to face, phone and ticking a box on a website consenting personal information for e-marketing or when when signing up for a service. 
 
-Every mail should contains sender information such as individual or organisation name,
-contact details and it should give the receiver the option to opt out from receiving messages or marketing mail. Companies have until have 5 days to honour request from individuals to opt out, and can not charge to proceed with request.
-For organisations their ABN (Australia Business number) is also required in electronic mail.
+Every mail should contain sender information such as individual or organisation names and contact details. 
+For organisations their ABN (Australia Business number) is also required in the message body. Another important request is that commercial messages should give the receiver the option to opt out from receiving messages or marketing mail in a clear way. Clear examples would be:
+` Reply STOP to unsubscribe or click on the link provided to unsubscribe. `
+Companies have up to 5 days to honour unsubscribe requests from individuals and can not charge to proceed with request.
 
 Address harvesting applications (softwares that compile electronic addresses) should not be used or supplied to other organisations. 
 
 Failing to comply with legal obligations can result in civil penalties and injunctions. Penalties depends on breach severity, damage caused as result of the contravention, whether organisation or individual have prior records showing previous breaches. 
 
 
-References:
+References for Privacy Act:
 Australian Privacy Principles -a summary for APP entities from 12 March 2014. (n.d.). Available at: https://www.oaic.gov.au/__data/assets/pdf_file/0020/1289/app-quick-reference-tool.pdf.
 
 Office of the Australian Information Commissioner (2024). The Privacy Act. [online] OAIC. Available at: https://www.oaic.gov.au/privacy/privacy-legislation/the-privacy-act.
 
 developer.atlassian.com. (n.d.). Data privacy guidelines for developers. [online] Available at: https://developer.atlassian.com/platform/marketplace/data-privacy-guidelines/.
 
-scheme =AGLSTERMS. AglsAgent; corporateName=Infrastructure, T. (2016). Spam Act 2003. [online] www.legislation.gov.au. Available at: https://www.legislation.gov.au/C2004A01214/latest/text.
+References for Scam 2003 Act:
 
 Australian Communications and Media Authority (2019). Spam Act | ACMA. [online] Acma.gov.au. Available at: https://www.acma.gov.au/avoid-sending-spam.
 
-‌
+scheme =AGLSTERMS. AglsAgent; corporateName=Infrastructure, T. (2016). Spam Act 2003. [online] www.legislation.gov.au. Available at: https://www.legislation.gov.au/C2004A01214/latest/text.
+
+
 # Q9 - mark 6
 Describe the structural aspects of the relational database model. Your description should include information about the structure in which data is stored and how relations are represented in that structure.
 
