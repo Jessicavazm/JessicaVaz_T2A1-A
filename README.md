@@ -89,6 +89,7 @@ Flask (2010). Welcome to Flask — Flask Documentation (3.0.x). [online] flask.p
 ‌
 GeeksforGeeks. (2023). Flask Tutorial. [online] Available at: https://www.geeksforgeeks.org/flask-tutorial/.
 
+
 # Q2 
 
 ## PostgreSQL
@@ -134,6 +135,7 @@ Amazon Web Services (n.d.). What is PostgreSQL? – Amazon Web Services. [online
 Dhruv, S. (2019). Pros and Cons of using PostgreSQL for Application Development. [online] Aalpha. Available at: https://www.aalpha.net/blog/pros-and-cons-of-using-postgresql-for-application-development/. 
 
 Dhruv, S. (2019). Pros and Cons of using PostgreSQL for Application Development. [online] Aalpha. Available at: https://www.aalpha.net/blog/pros-and-cons-of-using-postgresql-for-application-development/. 
+
 
 # Q3 
 
@@ -336,7 +338,6 @@ Example of B.crypt being used to hash user's password and how the hashed passwor
 
 ![Example of Postgresql](./screenshots/postgresql.png)
 
-
 Example of an auth controller routes that register and authenticate users. For this example, JWTManager and Bcrypt packages needs to be imported to hash password and create JWT. 
 
 Important steps for registering User:
@@ -358,7 +359,6 @@ Important steps for authenticating user:
 ![Example of Register route](./screenshots/auth2.png)
 
 ![Example of Login route](./screenshots/auth_example.png)
-
 
 Another example of confidentiality is to use environment variables such as `.env` to handle sensitive information when creating API and connecting API to database. Environment variables can be called in the main.py file and should be excluded of the source control. 
 
@@ -420,7 +420,7 @@ Breaching the Privacy Act can result in severe penalties including civil penalty
 
 ### Spam Act 2003 Australia
 
-Spam ACT 2003 was created in December 2003 in Australia and enforced by Australian Communications Authority however in 2005 it became the Australian Communications and Media Authority. The act regulates commercial electronic mails. Commercial electronic mail can be in text format, email, photos, audio format, forms, music or data.
+Spam ACT 2003 was created in December 2003 in Australia and enforced by Australian Communications Authority however in 2005 it became the Australian Communications and Media Authority. The act regulates commercial electronic mails and it aims to reduce the amount of unsolicited messages sent in Australia. Commercial electronic mail can be in text format, email, photos, audio format, forms, music or data. 
 
 This act outlines that commercial electronic mails should always include information of individual or organisation that authorised this email be to sent and mails should not be sent without consent. There are two types of consents: express and inferred. Consents can be gained through forms, face to face, phone and ticking a box on a website consenting personal information for e-marketing or when when signing up for a service. 
 
@@ -433,6 +433,9 @@ Address harvesting applications (softwares that compile electronic addresses) sh
 
 Failing to comply with legal obligations can result in civil penalties and injunctions. Penalties depends on breach severity, damage caused as result of the contravention, whether organisation or individual have prior records showing previous breaches. 
 
+Bellow is an example of infringement fines issued by ACMA for the year 2024.
+![Example of ACT 2003 issued fines](./screenshots/Spam2003.png)
+
 
 References for Privacy Act:
 Australian Privacy Principles -a summary for APP entities from 12 March 2014. (n.d.). Available at: https://www.oaic.gov.au/__data/assets/pdf_file/0020/1289/app-quick-reference-tool.pdf.
@@ -443,6 +446,8 @@ developer.atlassian.com. (n.d.). Data privacy guidelines for developers. [online
 
 References for Scam 2003 Act:
 
+https://www.acma.gov.au/. (2024). Investigations into spam and telemarketing. [online] Available at: https://www.acma.gov.au/investigations-spam-and-telemarketing#outcomes-for-2022 [Accessed 16 Jun. 2024].
+
 Australian Communications and Media Authority (2019). Spam Act | ACMA. [online] Acma.gov.au. Available at: https://www.acma.gov.au/avoid-sending-spam.
 
 scheme =AGLSTERMS. AglsAgent; corporateName=Infrastructure, T. (2016). Spam Act 2003. [online] www.legislation.gov.au. Available at: https://www.legislation.gov.au/C2004A01214/latest/text.
@@ -451,7 +456,7 @@ scheme =AGLSTERMS. AglsAgent; corporateName=Infrastructure, T. (2016). Spam Act 
 # Q9 - mark 6
 Describe the structural aspects of the relational database model. Your description should include information about the structure in which data is stored and how relations are represented in that structure.
 
-
+Detailed description of ALL structural relationship types
 
 # Q10 - mark 6
 Describe the integrity aspects of the relational database model. Your description should include information about the types of data integrity and how they can be enforced in a relational database.
@@ -459,7 +464,6 @@ Describe the integrity aspects of the relational database model. Your descriptio
 
 # Q11 - mark 6
 Describe the manipulative aspects of the relational database model. Your description should include information about the ways in which data is manipulated (added, removed, changed, and retrieved) in a relational database.
-
 
 
 # Q12 - mark 42 (main question)
