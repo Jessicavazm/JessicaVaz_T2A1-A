@@ -12,7 +12,7 @@ The typical architecture of an API is designed to handle http requests such as g
     - Flask_bcrypt = Used for handling sensitive data and password encryption.
     - Flask_jwt_extended = Used for authentication methods, token creation. 
 
-![Example of requirements.txt file](./screenshots/requirements.txt.png)
+![Example of requirements.txt file](./screenshots/requirements.png)
 
 - Main.py 
     - This file contains the core code for the application. 
@@ -438,6 +438,7 @@ Bellow is an example of infringement fines issued by ACMA for the year 2024.
 
 
 References for Privacy Act:
+
 Australian Privacy Principles -a summary for APP entities from 12 March 2014. (n.d.). Available at: https://www.oaic.gov.au/__data/assets/pdf_file/0020/1289/app-quick-reference-tool.pdf.
 
 Office of the Australian Information Commissioner (2024). The Privacy Act. [online] OAIC. Available at: https://www.oaic.gov.au/privacy/privacy-legislation/the-privacy-act.
@@ -454,9 +455,54 @@ scheme =AGLSTERMS. AglsAgent; corporateName=Infrastructure, T. (2016). Spam Act 
 
 
 # Q9 - mark 6
-Describe the structural aspects of the relational database model. Your description should include information about the structure in which data is stored and how relations are represented in that structure.
 
-Detailed description of ALL structural relationship types
+Relational databases store data in different tables, often referred to as relational tables. Relational databases consist of a collection of tables, where tables contain columns that describe the entity's attributes and rows that contain instances of the entity. Tables are connected by defining relationships using primary keys, foreign keys, and cardinality. 
+
+The first step to create a relational database is to create an ER (Entity-Relationship) diagram, which serves as a conceptual representation of the database structure. In an ER diagram, format shapes are used to represent entities, attributes and the type of relationship between entities. 
+
+
+### Entities
+Entities can be a person, place, event, objects or a concept that the tables store information about it. In an ER diagram, entities are represented by rectangles and in the tables entities are the 'rows'.
+
+### Attributes
+Attributes are the characteristics that the entity is made of. In an ER diagram, entities are represented by ellipses and in the tables entities are the 'columns'.
+
+
+### Primary Key
+A primary key is defined in every table to uniquely identify the entities and it can not be Null. Candidate keys are attributes that meet the requirements to be the primary key. Attributes such as name, date and price generally can't be a primary key because it stands a chance of having a duplicate value. A example of acceptable candidate key would be ID number such as passport or driver license number. If a table doesn't contain an attribute that uniquely identify the entities, an ID primary key can be created. There's two types of Primary keys: Single Attribute Primary key or Composite Primary key which contains two or more attributes.
+
+### Foreign Key
+A Foreign key is an attribute which is present in both tables and it's used as a reference to link the tables. The first step to determine a foreign key is to determine the type of relationship that exist between the tables.
+
+### Relationship
+Relationship is the association between two or more entities that describe how they are related. In an ER diagram, relationship are represented by connecting tables using lines and diamonds. Relationships generally describes 'verbs'. 
+
+Example from Trello API:
+- A user HAS one or more cards.
+- A card HAS comments.
+
+When there's a many to many relationship between two tables, a new table needs to be created to express this relationship. The table needs to have at least two attributes (the two Primary Keys from the two linked tables).
+
+### Cardinality
+Defines the numerical attributes of the relationship between two entities. It's can also be represented by symbols on the end of the line.
+
+- One to One (Represented by '1' on both ends):
+Occurs when one entity in 'Table A' can be associated with only one entity from 'Table B', this relationship is Bi-directional. 
+    - Example: A person has only one passport. A passport can be owned by only one person.
+
+- One to Many (Represented by '1' on one end and 'M' on the other end):
+Occurs when one entity in 'Table A' can be associated with multiple entities from 'Table B' but multiple entities from 'Table B' can be associated with only one entity from 'Table A'. This relationship is implemented by using Primary Key + Foreign Key.
+    - Example: A company can employ many employees, but employees can work only for one company.
+
+- Many to Many (Represented by 'M' on one end and 'N' on the other end)
+Occurs when multiple entities from 'Table A' can be associated with multiple entities from 'Table B'. When this relationship occurs, a Junction table needs to be created. Junction table is also known as Intermediate and Associate table. The Junction table contains the Foreign keys referencing the Primary keys from connected entities plus any extra attributes. Junction tables offer many benefits including data redundancy, integrity and scalability.
+    - Example: Students can take many courses, courses can be taken by many students.
+
+
+References:
+
+GeeksForGeeks (2015). Relational Model in DBMS - GeeksforGeeks. [online] GeeksforGeeks. Available at: https://www.geeksforgeeks.org/relational-model-in-dbms/.
+
 
 # Q10 - mark 6
 Describe the integrity aspects of the relational database model. Your description should include information about the types of data integrity and how they can be enforced in a relational database.
