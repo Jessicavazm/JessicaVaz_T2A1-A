@@ -483,7 +483,7 @@ Attributes are the characteristics that the entity is made of, the attribute's p
 Attributes that are made of a collection of attributes are called Composite Attributes, they are represented by the *<b>oval</b>* format.
 
 
-### Relationship
+### Relationships
 Relationship is the association between two or more entities that describe how they are related. Relationship generally describes 'verbs'. 
 
 Example:
@@ -492,7 +492,7 @@ Example:
 
 
 ### Cardinality
-Defines the numerical attributes of the relationship between two entities. It represents how many instances from one entity can be associated with the instances from another entity. Cardinality can be represented by using symbols at the end of the lines that connects entities (Crow's Foot Notation).
+Defines the numerical attributes of the relationship between two entities. It represents how many instances from one entity can be associated with the instances from another entity. Cardinality can be represented by different notations. One of the most common one is the Crow's Foot Notation. It uses a single line with symbols towards the end of the line that represents the relationship type between entities.
 
 
 - Crow's Foot Notation: 
@@ -500,7 +500,7 @@ Defines the numerical attributes of the relationship between two entities. It re
     - One to Many: Represented by single line with vertical line on one end and with crow's foot on the other end.
     - Many to Many: Represented by a single line with crow's foot on both ends.
 
-- Another way to describe cardinality:
+- Chen's notation:
     - One to One: Represented by '1' on both ends.
     - One to Many: Represented by '1' on one end and 'N' on the other end.
     - Many to Many: Represented by 'M' on one end and 'N' on the other end.
@@ -532,14 +532,74 @@ GeeksforGeeks (2015). Introduction of ER Model. [online] GeeksforGeeks. Availabl
 
 
 # Q10
-Describe the integrity aspects of the relational database model. Your description should include information about the types of data integrity and how they can be enforced in a relational database.
+
+Data integrity is very crucial in relational database models to ensure data stored in database is accurate and consistent. Databases are only effective when they store accurate information that can be used to provide valuable insights. It's extremely important tables are connected correctly in order to retrieve and display correct information and perform database operations. Applying constraints is a way to ensure integrity in Relation databases.
 
 
-### Primary Key
-A primary key is defined in every table to uniquely identify the entities and it can not be Null. Candidate keys are attributes that meet the requirements to be the primary key. Attributes such as name, date and price generally can't be a primary key because it stands a chance of having a duplicate value. A example of acceptable candidate key would be ID number such as passport or driver license number. If a table doesn't contain an attribute that uniquely identify the entities, an ID primary key can be created. There's two types of Primary keys: Single Attribute Primary key or Composite Primary key which contains two or more attributes.
+### Type of constraints  
 
-### Foreign Key
-A Foreign key is an attribute which is present in both tables and it's used as a reference to link the tables. The first step to determine a foreign key is to determine the type of relationship that exist between the tables.
+Primary keys are defined in every table to uniquely identify the entities. By defining a primary key, it ensures all rows are unique and there's no redundancy. Primary key constraint automatically ensures Primary key value is not Null and indexes are unique. Attributes such as name, date and price generally can't be a primary key because it stands a chance of having a duplicate value. A example of acceptable candidate key would be ID number such as passport or driver license number. If a table doesn't contain an attribute that uniquely identify the entities, an ID primary key can be created. Only one primary key is acceptable per table.
+
+A foreign key is an attribute in one table that references the primary key of another table. It is used to establish and enforce a link between two tables, ensuring referential integrity. The foreign key in the child table must match the value in the primary key of the parent table. 
+
+Setting primary key and foreign keys to link tables, ensures any changes made to one table will reflect on the other table. In case of deletion, 'DELETE CASCADE' can be used to ensure if data is removed from parent table, it will be automatically be removed from child tables. In order to use Cascade, 'timestamp' cannot be used. Values on the table that contain the foreign keys needs to be nullable in order for cascading action to work. 
+
+'DEFAULT' constraint can be set when no value is provided or the value is unknown, the value will default to the value provided.
+'UNIQUE' Constraint ensures all values in the columns are unique. 'NOT NULL' constraint ensures a column cannot have NULL value.
+
+### Example of an integrity methods:
+
+Implementing foreign keys on table 'comments' from Trello API. This table requires both foreign keys from 'User'
+table and from 'Card' table since it reflects a many to many relationship. Nullable = False is set in comments table, since a comment is required to perform the operation.
+
+
+    class Comment(db.Model):
+  
+        __tablename__ = "comments"
+
+        id = db.Column(db.Integer, primary_key=True)
+        message = db.Column(db.String, nullable=False)
+        date = db.Column(db.Date)
+
+        # Foreign keys references the Primary Key
+        user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+        card_id = db.Column(db.Integer, db.ForeignKey("cards.id"), nullable=False)
+
+        # Define relationship between FK and Comment model in order to get more info
+        user = db.relationship("User", back_populates="comments")
+        card = db.relationship("Card", back_populates="comments")
+
+
+### Postgres psql
+
+                                    Table "public.comments"
+    Column  |       Type        | Collation | Nullable |               Default                
+    ---------+-------------------+-----------+----------+--------------------------------------
+    id      | integer           |           | not null | nextval('comments_id_seq'::regclass)
+    message | character varying |           | not null | 
+    date    | date              |           |          | 
+    user_id | integer           |           | not null | 
+    card_id | integer           |           | not null | 
+    Indexes:
+        "comments_pkey" PRIMARY KEY, btree (id)
+    Foreign-key constraints:
+        "comments_card_id_fkey" FOREIGN KEY (card_id) REFERENCES cards(id)
+        "comments_user_id_fkey" FOREIGN KEY (user_id) REFERENCES users(id)
+
+
+References:
+
+References taken from TRELLO API - Coder academy APR 2024
+
+Microsoft (2022). Primary and Foreign Key Constraints - SQL Server. [online] learn.microsoft.com. Available at: https://learn.microsoft.com/en-us/sql/relational-databases/tables/primary-and-foreign-key-constraints?view=sql-server-ver16.
+
+‌
+### How to implement integrity aspect
+
+
+
+
+
 
 
 # Q11 - mark 6
