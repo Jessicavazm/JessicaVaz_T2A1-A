@@ -533,7 +533,9 @@ GeeksforGeeks (2015). Introduction of ER Model. [online] GeeksforGeeks. Availabl
 
 # Q10
 
-Data integrity is very crucial in relational database models to ensure data stored in database is accurate and consistent. Databases are only effective when they store accurate information that can be used to provide valuable insights. It's extremely important tables are connected correctly in order to retrieve and display correct information and perform database operations. Applying constraints is a way to ensure integrity in Relation databases.
+Data integrity is very crucial in relational database models to ensure data stored in database is accurate and consistent. Databases are only effective when they store accurate information that can be used to provide valuable insights. It's extremely important tables are connected correctly in order to retrieve and display correct information and perform database operations. Applying constraints is a way to ensure integrity in Relation databases, constraints work like rules, any violation to rules will prevent database operations.
+
+Constraint examples would include defining PK and FK. Declaring constraint in table's attributes such as: NULL, UNIQUE, DEFAULT and CASCADE.
 
 
 ### Type of constraints  
@@ -594,16 +596,114 @@ References taken from TRELLO API - Coder academy APR 2024
 Microsoft (2022). Primary and Foreign Key Constraints - SQL Server. [online] learn.microsoft.com. Available at: https://learn.microsoft.com/en-us/sql/relational-databases/tables/primary-and-foreign-key-constraints?view=sql-server-ver16.
 
 ‌
-### How to implement integrity aspect
+
+# Q11
+
+Data is manipulated in Relational databases through query languages. The most common manipulative methods contain retrieving data from database which is performed by using 'SELECT', adding data to the database by using 'INSERT', updating data by using 'UPDATE' and removing data from database by using 'DELETE'. 
+
+CLI 
+
+CRUD
 
 
+#### SELECT:
+The select method is used to query data from data table, SELECT * means select everything. WHERE/ FILTER BY can be used along the select method to gather specific information. In the example bellow, SELECT is used to gather information where id matches the number 1. 
 
 
+    trello_db=# SELECT * FROM users WHERE id = 1;
+
+    id |   name    |      email      |                           password                           | is_admin 
+    ----+-----------+-----------------+--------------------------------------------------------------+----------
+    1 | User Jess | admin@email.com | $2b$12$/pwIEBuHaPJJP/J1bpDEmOikVJh0VKzO0as2r5.cCcXp9UT2HxmNO | t
+    (1 row)
 
 
+#### INSERT: 
 
-# Q11 - mark 6
-Describe the manipulative aspects of the relational database model. Your description should include information about the ways in which data is manipulated (added, removed, changed, and retrieved) in a relational database.
+The insert method is used to insert new data into the database tables. This process can be done by using 'INSERT INTO' and 'VALUES'. 
+
+#### Steps to perform INSERT method:
+
+INSERT INTO name_of_the_table (Column1, Column 2, Column 3) + VALUES (Value1, Value2, Value 3) + semicolon (;) to perform the operation. 
+
+In the TRELLO API, the first column (ID) doesn't need to entered since it has an auto-increment default value. 'IS_ADMIN' has a default value set to False. In the example above, the user 'Luke' will have default value for the attribute 'is_admin'.
+
+If no values has conflicted with the constraints applied in database, and the operation has been successful, an acknowledgment message will be displayed confirming procedure.
+
+- Example of a successful operation:
+
+    trello_db=# INSERT INTO users (name, email, password)
+    VALUES ('Luke', 'luke@email.com', '123456');
+    INSERT 0 1
+
+- Example of constraint's violation:
+
+    trello_db=# INSERT INTO users (name, password)
+    VALUES ('Luke', '123456');
+    ERROR:  null value in column "email" of relation "users" violates not-null constraint
+    DETAIL:  Failing row contains (6, Luke, null, 123456, null).
+    trello_db=# 
+
+
+#### UPDATE
+
+The UPDATE method modifies existing data in tables and allows you to change one or more columns simultaneously. The WHERE clause specifies the condition to identify which row will be updated.
+
+
+    UPDATE name_of_the_table
+    SET column1 = value1, column2 = value2
+    WHERE condition;
+
+#### EXAMPLE TO UPDATE NAME
+
+    trello_db=# SELECT * FROM users;
+
+    id |  name  |      email      |                           password                           | is_admin 
+    ----+--------+-----------------+--------------------------------------------------------------+----------
+    1 |        | admin@email.com | $2b$12$3O1kbYcVK0n1dLxaPF22Setkg5uOLIlLZbDnZfFKeFct4L/pTH3KC | t
+    2 | User A | usera@email.com | $2b$12$OFjkNTMZqqKqt9.fSquZaOonQHOtt6cutV9P68ZinU//uoXTFq9tS | f
+    3 | Luke   | luke@email.com  | 123456                                                       | 
+    (3 rows)
+
+    trello_db=# UPDATE users
+    trello_db-# SET name = 'User B' 
+    trello_db-# WHERE id = 3;
+    UPDATE 1
+    
+    
+    trello_db=# SELECT * FROM users;
+
+    id |    name    |      email      |                           password                           | is_admin 
+    ----+------------+-----------------+--------------------------------------------------------------+----------
+    1 |            | admin@email.com | $2b$12$3O1kbYcVK0n1dLxaPF22Setkg5uOLIlLZbDnZfFKeFct4L/pTH3KC | t
+    2 | User A     | usera@email.com | $2b$12$OFjkNTMZqqKqt9.fSquZaOonQHOtt6cutV9P68ZinU//uoXTFq9tS | f
+    3 | User B     | luke@email.com  | 123456                                                       | 
+    (3 rows)
+
+trello_db=# 
+
+
+#### DELETE
+
+The delete method deletes data from database. The WHERE clause specifies the condition to identify which row will be deleted.
+
+    DELETE FROM name_of_the_table
+    WHERE condition;
+
+#### Example
+
+    trello_db=# DELETE FROM users
+    trello_db-# WHERE id = 3;
+    DELETE 1
+    trello_db=# 
+
+    trello_db=# SELECT * FROM users;
+
+    id |    name    |      email      |                           password                           | is_admin 
+    ----+------------+-----------------+--------------------------------------------------------------+----------
+    1 |            | admin@email.com | $2b$12$3O1kbYcVK0n1dLxaPF22Setkg5uOLIlLZbDnZfFKeFct4L/pTH3KC | t
+    2 | User A     | usera@email.com | $2b$12$OFjkNTMZqqKqt9.fSquZaOonQHOtt6cutV9P68ZinU//uoXTFq9tS | f
+
 
 
 # Q12 - mark 42 (main question)
