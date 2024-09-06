@@ -533,26 +533,69 @@ GeeksforGeeks (2015). Introduction of ER Model. [online] GeeksforGeeks. Availabl
 
 # Q10
 
-Data integrity is very crucial in relational database models to ensure data stored in database is accurate and consistent. Databases are only effective when they store accurate information that can be used to provide valuable insights. It's extremely important tables are connected correctly in order to retrieve and display correct information and perform database operations. Applying constraints is a way to ensure integrity in Relation databases, constraints work like rules, any violation to rules will prevent database operations.
+Data integrity is very crucial in relational database models to ensure data stored in database is accurate and consistent. Databases are only effective when they store accurate information that can be used to provide valuable insights. It's extremely important tables are connected correctly in order to retrieve accurate information and perform operations on database. 
 
-Constraint examples would include defining PK and FK. Declaring constraint in table's attributes such as: NULL, UNIQUE, DEFAULT and CASCADE.
+Applying constraints is a way to ensure integrity in Relation databases. Constraints are rules applied to database. These rules are required to be follow in order to process data correctly. A violation of constraints will cause database operations to be rejected.
 
 
 ### Type of constraints  
 
+#### Primary key
+
 Primary keys are defined in every table to uniquely identify the entities. By defining a primary key, it ensures all rows are unique and there's no redundancy. Primary key constraint automatically ensures Primary key value is not Null and indexes are unique. Attributes such as name, date and price generally can't be a primary key because it stands a chance of having a duplicate value. A example of acceptable candidate key would be ID number such as passport or driver license number. If a table doesn't contain an attribute that uniquely identify the entities, an ID primary key can be created. Only one primary key is acceptable per table.
 
-A foreign key is an attribute in one table that references the primary key of another table. It is used to establish and enforce a link between two tables, ensuring referential integrity. The foreign key in the child table must match the value in the primary key of the parent table. 
 
-Setting primary key and foreign keys to link tables, ensures any changes made to one table will reflect on the other table. In case of deletion, 'DELETE CASCADE' can be used to ensure if data is removed from parent table, it will be automatically be removed from child tables. In order to use Cascade, 'timestamp' cannot be used. Values on the table that contain the foreign keys needs to be nullable in order for cascading action to work. 
+#### Foreign Key
 
-'DEFAULT' constraint can be set when no value is provided or the value is unknown, the value will default to the value provided.
-'UNIQUE' Constraint ensures all values in the columns are unique. 'NOT NULL' constraint ensures a column cannot have NULL value.
+A foreign key is an attribute in one table that references the primary key of another table. It is used to establish and enforce a link between two tables, ensuring referential integrity. The foreign key in the child table must match the value in the primary key of the parent table (data consistency). This relational integrity ensures that any operation performed on table that contains the primary key, will automatically reflect on the table that contains the foreign key. 
 
-### Example of an integrity methods:
+
+#### Cascade constraint and an example of Cascade in 'comments'
+
+Cascade can be used to ensure if data is removed from parent table, it will be automatically be removed from child table. In order to use Cascade, 'timestamp' cannot be used. Values on the table that contain the foreign keys needs to be nullable in order for cascading action to work. 
+
+Cascade in the example bellow from Trello API, ensures when a card gets deleted, the comments within that card will also be deleted.
+
+    class Card(db.Model):
+    __tablename__ = "cards"
+
+    # Define attributes
+    id = db.Column(db.Integer, primary_key =True)
+    title = db.Column(db.String, nullable=False)
+    description = db.Column(db.String)
+    status = db.Column(db.String)
+    priority = db.Column(db.String)
+    date = db.Column(db.Date) # Created date
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+
+    user = db.relationship("User", back_populates= "cards")
+    comments = db.relationship("Comment", back_populates="card", cascade="all, delete")
+
+
+#### DEFAULT constraint 
+It can be set when no value is provided or the value is unknown, the value will default to the value provided.
+
+    is_admin = db.Column(db.Boolean, default=False)
+
+
+#### UNIQUE Constraint 
+It ensures all values in the columns are unique.
+
+    email = db.Column(db.String, nullable=False, unique=True)
+
+
+#### NOT NULL constraint 
+It ensures a column cannot have NULL value, it requires a value to be provided. NOT NULL should have a DEFAULT constraint to guarantee a value is assigned if none is provided.
+
+    password = db.Column(db.String, nullable=False)
+
+
+### Example of integrity methods:
 
 Implementing foreign keys on table 'comments' from Trello API. This table requires both foreign keys from 'User'
-table and from 'Card' table since it reflects a many to many relationship. Nullable = False is set in comments table, since a comment is required to perform the operation.
+and 'Card' tables since it reflects a many to many relationship. 
+
+Nullable = False is set in comments table, since a comment is required to perform the operation.
 
 
     class Comment(db.Model):
@@ -563,7 +606,7 @@ table and from 'Card' table since it reflects a many to many relationship. Nulla
         message = db.Column(db.String, nullable=False)
         date = db.Column(db.Date)
 
-        # Foreign keys references the Primary Key
+        # Foreign keys references the Primary Key, ensures data consistency 
         user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
         card_id = db.Column(db.Integer, db.ForeignKey("cards.id"), nullable=False)
 
@@ -572,7 +615,7 @@ table and from 'Card' table since it reflects a many to many relationship. Nulla
         card = db.relationship("Card", back_populates="comments")
 
 
-### Postgres psql
+### Trello API constraints
 
                                     Table "public.comments"
     Column  |       Type        | Collation | Nullable |               Default                
@@ -599,16 +642,21 @@ Microsoft (2022). Primary and Foreign Key Constraints - SQL Server. [online] lea
 
 # Q11
 
-Data is manipulated in Relational databases through query languages. The most common manipulative methods contain retrieving data from database which is performed by using 'SELECT', adding data to the database by using 'INSERT', updating data by using 'UPDATE' and removing data from database by using 'DELETE'. 
+Data in relational databases can be manipulated using CRUD operations, which stands for CREATE, READ, UPDATE, and DELETE. In PostgreSQL, you retrieve data using the SELECT method, add data with the INSERT method, update data with the UPDATE method, and remove data with the DELETE method.
 
-CLI 
-
-CRUD
+CLIs can also be created to perform operations on a database. Common custom commands include creating tables, seeding tables, and deleting tables. The CLI is essential for API testing because it allows you to manipulate tables directly from the API code to achieve immediate response.
 
 
 #### SELECT:
-The select method is used to query data from data table, SELECT * means select everything. WHERE/ FILTER BY can be used along the select method to gather specific information. In the example bellow, SELECT is used to gather information where id matches the number 1. 
+The select method is used to query data from data table, SELECT * means select everything. WHERE/ FILTER BY can be used along the 'select' method to gather specific information. In the example bellow, SELECT method is used to gather information where id matches the number 1. 
 
+
+SELECT DISTINCT can be be used to retrieve unique values from a specific column.
+
+SELECT DISTINCT name FROM users;
+
+
+### Example of SELECT method
 
     trello_db=# SELECT * FROM users WHERE id = 1;
 
@@ -685,7 +733,7 @@ trello_db=#
 
 #### DELETE
 
-The delete method deletes data from database. The WHERE clause specifies the condition to identify which row will be deleted.
+The delete method deletes data from database. The WHERE clause specifies the condition to identify which row will be deleted. If no clause is specified, the delete method will delete all rows from the table.
 
     DELETE FROM name_of_the_table
     WHERE condition;
@@ -704,6 +752,90 @@ The delete method deletes data from database. The WHERE clause specifies the con
     1 |            | admin@email.com | $2b$12$3O1kbYcVK0n1dLxaPF22Setkg5uOLIlLZbDnZfFKeFct4L/pTH3KC | t
     2 | User A     | usera@email.com | $2b$12$OFjkNTMZqqKqt9.fSquZaOonQHOtt6cutV9P68ZinU//uoXTFq9tS | f
 
+
+#### Database manipulation through endpoints.
+
+Data manipulation can also be performed through HTTP requests via an API that connects the database to endpoints (routes). POST and PATCH endpoints may include validation requirements to ensure that only appropriate data is submitted. They can also enforce authorization checks to ensure that only authorized users can perform certain operations. For instance, in the TRELLO API, only the card owner or an admin user is permitted to perform operations on cards. Bellow is the most common manipulation methods from endpoints.
+
+
+GET request: Equivalent to the 'SELECT' method. In the TRELLO API, this request retrieves and displays users, cards, or comments. Parameters can be used to retrieve specific information.
+
+POST request: Equivalent to the 'INSERT' method, it adds new information on database. In the TRELLO API, this request is responsible for user's registration and authentication, also creates new cards and comments. 
+
+PUT/PATCH request: Equivalent to the 'UPDATE' method, it updates existing data in the database. In the TRELLO API, this request is responsible for updating existing data on Users, Cards and Comments. Generally, 'PATCH' is more used since it only updates a partial part of the data, while the 'PUT' methods updates the data as a whole.
+
+DELETE request: Equivalent to the 'DELETE' method, it deletes a specific item based on the given parameter. In the TRELLO API, this request is responsible for deleting users, cards or comments.
+
+
+#### POST method example from API TRELLO.
+This method allows an authenticated user to create a new card. It retrieves the information from the request body and uses the 'POST' method to create a new card instance. The card schema is used to serialize the data, and the new card is then displayed to the user.
+
+    # /cards - POST - create a new card, requires token
+
+    @cards_bp.route("/", methods=["POST"])
+    @jwt_required()
+
+    def create_card():
+        # Get the data from the body of the request
+        # Load method deserialise and loads the validation from schemas
+        
+        card_body = card_schema.load(request.get_json())
+
+        # Create a new card model instance
+        # user_id is a foreign key in this table
+        # Get user_id from token
+        card = Card(
+            title = card_body.get("title"),
+            description = card_body.get("description"),
+            date = date.today(),
+            status = card_body.get("status"),
+            priority = card_body.get("priority"),
+            user_id = get_jwt_identity()
+        )
+
+        # Add and commit to DB
+        db.session.add(card)
+
+        db.session.commit()
+        
+        # Response message
+        return card_schema.dump(card), 201
+
+
+#### Delete method example from API TRELLO.
+
+This method allows an authenticated user (either the card's owner or an admin) to delete a specific card. The <int:card_id> parameter specifies which card is to be deleted. After authentication, the function retrieves the card from the database and proceeds to delete it if the card exists. In both cases, the user receives an appropriate acknowledgment message.
+
+
+    @cards_bp.route("/<int:card_id>", methods=["DELETE"])
+    # Authorization required
+    @jwt_required()
+    
+    def delete_card(card_id):
+        # checks if user is admin or not
+        is_admin = authorise_as_admin()
+        # if not admin
+        if not is_admin:
+            # error message
+            return {"error": "User is not authorised to perform this action"}
+        
+        # Fetch the card from DB
+        stmt = db.select(Card).filter_by(id=card_id)
+        card = db.session.scalar(stmt)
+        
+        # If card exist
+        if card:    
+            # Delete the card
+            db.session.delete(card)
+            db.session.commit()
+            return {"message": f"Card {card.title} deleted successfully!"}
+        # Else
+        else:
+            # Return error message
+            return {"error": f"Card {card_id} not found."}, 404
+
+
+References taken from TRELLO API - Coder academy APR 2024.
 
 
 # Q12 - mark 42 (main question)
