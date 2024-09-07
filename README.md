@@ -382,31 +382,39 @@ Week 4 and 5 Trello API Zoom classes
 
 # Q8 
 
-Developers should be aware and comply with legal obligations when handling user's data. There are acts and obligations in place to ensure individuals information is being held safely and secured. Acts might be different from country to country however they enforce the same thing: data security. 
+Developers should be aware and comply with legal obligations when handling user's data. There are acts and obligations in place to ensure individuals information is being held safely and secured. Acts might be different from country to country however they enforce the same thing: data security. Being aware of obligations helps developers understand the responsibilities they have towards the individuals and avoid any possible legal action or penalty. They are required to implement and enforce security in their applications, ensure user acknowledgment when requesting data and clear information on how data will be used.
 
-Being aware of obligations helps developers understand the responsibilities they have towards the individuals and avoid any possible legal action or penalty. They are required to implement and enforce security in their applications, ensure user acknowledgment when requesting data and clear information on how data will be used.
+Developers should regularly check and update their applications to make sure they follow legal rules. They are also required to notify users if there's a data breach, such as misuse or a leak of personal information.
 
-Developers should also review and update their applications to make sure their are complying with obligations and they also have the obligation to inform users in case of data breach events such as data misusage or leakage.
+<b>Practices developers can follow to ensure they are complying with legal obligations:</b>
+
+- Be aware of legal actions in place to ensure compliance.
+- Ensure data security by adding extra layers of protection to the application, such as encryption, authentication, and validation.
+- Obtain users consent and display clear disclosure on how data will be used.
+- Offer users a clear and easy to find function to unsubscribe.
+- Only collect necessary data, and remove data once it's no needed.
+- Offer users the right to access, update or delete their own personal data.
+- Ensure systems complies with legal obligations.
+- In case of using any third party tool, ensure it also complies with legal obligations.
 
 
 ## Legal acts in Australia developers should be aware of.
 
-### The Australian Privacy Principles(APPs) - Privacy Act 1988
+<b>The Australian Privacy Principles(APPs) - Privacy Act 1988 </b>
 
-Privacy Act was created in 14 Dec 1988 and started back in 1989 in Australia to protect individuals and how their personal data are processed by Australia government agencies and private organisations with turnover of $3 million (there is some exceptions for smaller organisations). 
+Privacy Act was created on 14/12/1988 in Australia. It became effective in 1989 to protect individuals and dictate how their personal data are processed by Australia government agencies and private organisations with a turnover of $3 million or more (there is some exceptions for smaller organisations). Privacy Act is the main legislation in Australia for data protection and it gives the individuals the right to know when their data is being collected, who will have access to it and how it will be used.
 
-Privacy Act is the main legislation in Australia for data protection and it gives the individuals the right to know when data is being collected, who will have access to it, how it will be used and ensures their data is safe.
+Privacy act consists of 13 principles that APP entities should follow when handling personal data. It ensure entities handles data safely and only collect necessary data. The 13 principles also outline what entities need to do before sharing data across borders, how to handle unsolicited data, and the conditions for using data for marketing. They also detail steps to protect data from misuse, loss, or cyber attacks. Additionally, the principles cover obligations towards individuals, such as notifying them about data collection, allowing data corrections, keeping records of data access requests, and destroying data when it’s no longer needed or the purpose has been fulfilled.
 
 Personal information and sensitive information can include: name, phone number, dob, biometrics, IP addresses, credit information, employment records, photos,location, criminal and health records, sexual orientation, political associations, religious beliefs, ethnic origin. Privacy Act does not cover anyone who has been deceased. The right to privacy is not absolute, which means other concerns are also taken into consideration, these concerns comes into consideration when safety and justice matters are involved. 
 
 Under this act, individuals can choose to not disclose personal information, have access to their personal information (health, credit records), have the right to decide if they wish to not receive marketing. Individuals also have the right to make complaints about organisations regulated under Privacy Act in case the individual believes their data has been mishandled and the company has breached the security responsibilities they have towards individuals. 
 
-There is a set of principles that APP entities should follow when handling personal data. It ensure entities handles data safely and only collect necessary data. The 13 principles also outline what entities need to do before sharing data across borders, how to handle unsolicited data, and the conditions for using data for marketing. They also detail steps to protect data from misuse, loss, or cyber attacks. Additionally, the principles cover obligations towards individuals, such as notifying them about data collection, allowing data corrections, keeping records of data access requests, and destroying data when it’s no longer needed or the purpose has been fulfilled.
-
 Breaching the Privacy Act can result in severe penalties including civil penalty up to $2,500,000 for an individual or up to $50,000,000 for an organisation. These are the maximum penalty for serious offenses and they are described in Privacy Act section 13G. Affected individuals have the right to sue individual/ organisations for compensation.
 
 
-#### Companies under Privacy Act 1998
+<b>Companies under Privacy Act 1998:</b>
+
 - Australian Government 
 - Norfolk Island administration
 - Organisations (individual, body corporate, partnership, unincorporated association, trust) with annual turnover of $3 million or more.
@@ -420,11 +428,7 @@ Breaching the Privacy Act can result in severe penalties including civil penalty
     - Business that sells/ purchase personal information
 
 
-#### Photo of Australian Privacy Principles from OAIC.GOV.AU
-![Australian Privacy Principles from OAIC](./screenshots/APprinciples.png)
-
-
-### Spam Act 2003 
+<b>Spam Act 2003 </b>
 
 Spam ACT 2003 was created in December 2003 in Australia and enforced by Australian Communications Authority, however in 2005 it became the Australian Communications and Media Authority. The act regulates commercial electronic mails and it aims to reduce the amount of unsolicited messages sent in Australia. 
 
@@ -432,6 +436,9 @@ Developers are crucial when it comes to the CAN-SPAM Act of 2003 because they cr
 
 Failing to comply with legal obligations can result in civil penalties and injunctions. Penalties depends on breach severity and whether the organisation or individual have prior records showing previous breaches. 
 
+
+#### Photo of Australian Privacy Principles from OAIC.GOV.AU
+![Australian Privacy Principles from OAIC](./screenshots/APprinciples.png)
 
 References for Privacy Act:
 
