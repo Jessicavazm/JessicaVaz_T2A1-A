@@ -379,12 +379,17 @@ In main.py file we can call the env variables with the help of the OS method, th
 References:
 Week 4 and 5 Trello API Zoom classes
 
+
 # Q8 
 
-Developers should be aware and comply with legal obligations handling users data. There are acts and obligations in place to ensure individuals information is being held safely and secured. Acts might be different from country to country however they enforce the same thing: data security. 
+Developers should be aware and comply with legal obligations when handling user's data. There are acts and obligations in place to ensure individuals information is being held safely and secured. Acts might be different from country to country however they enforce the same thing: data security. 
 
 Being aware of obligations helps developers understand the responsibilities they have towards the individuals and avoid any possible legal action or penalty. They are required to implement and enforce security in their applications, ensure user acknowledgment when requesting data and clear information on how data will be used.
+
 Developers should also review and update their applications to make sure their are complying with obligations and they also have the obligation to inform users in case of data breach events such as data misusage or leakage.
+
+
+## Legal acts in Australia developers should be aware of.
 
 ### The Australian Privacy Principles(APPs) - Privacy Act 1988
 
@@ -395,6 +400,11 @@ Privacy Act is the main legislation in Australia for data protection and it give
 Personal information and sensitive information can include: name, phone number, dob, biometrics, IP addresses, credit information, employment records, photos,location, criminal and health records, sexual orientation, political associations, religious beliefs, ethnic origin. Privacy Act does not cover anyone who has been deceased. The right to privacy is not absolute, which means other concerns are also taken into consideration, these concerns comes into consideration when safety and justice matters are involved. 
 
 Under this act, individuals can choose to not disclose personal information, have access to their personal information (health, credit records), have the right to decide if they wish to not receive marketing. Individuals also have the right to make complaints about organisations regulated under Privacy Act in case the individual believes their data has been mishandled and the company has breached the security responsibilities they have towards individuals. 
+
+There is a set of principles that APP entities should follow when handling personal data. It ensure entities handles data safely and only collect necessary data. The 13 principles also outline what entities need to do before sharing data across borders, how to handle unsolicited data, and the conditions for using data for marketing. They also detail steps to protect data from misuse, loss, or cyber attacks. Additionally, the principles cover obligations towards individuals, such as notifying them about data collection, allowing data corrections, keeping records of data access requests, and destroying data when it’s no longer needed or the purpose has been fulfilled.
+
+Breaching the Privacy Act can result in severe penalties including civil penalty up to $2,500,000 for an individual or up to $50,000,000 for an organisation. These are the maximum penalty for serious offenses and they are described in Privacy Act section 13G. Affected individuals have the right to sue individual/ organisations for compensation.
+
 
 #### Companies under Privacy Act 1998
 - Australian Government 
@@ -409,32 +419,18 @@ Under this act, individuals can choose to not disclose personal information, hav
     - Credit reporting business
     - Business that sells/ purchase personal information
 
-There a set of principles that APP entities should follow when handling personal data. These rules ensure entities handles data safely and only necessary data is collected. 
-
-The principles shares the steps before entities share data overseas, what to do with unsolicited data acquired, conditions required for organisations data usage for marketing purposes, steps to protect data from different case scenarios such as misuse, loss or cyber attacks. Obligations entities have towards individuals including data collection notification, data correction, records of requested access to data, destroy data in certain circumstances (purpose has been achieved and data is not longer needed).
-
-Breaching the Privacy Act can result in severe penalties including civil penalty up to $2,500,000 for an individual or up to $50,000,000 for an organisation. These are the maximum penalty for serious offenses and they are described in Privacy Act section 13G. Affected individuals have the right to sue individual/ organisations for compensation.
 
 #### Photo of Australian Privacy Principles from OAIC.GOV.AU
 ![Australian Privacy Principles from OAIC](./screenshots/APprinciples.png)
 
-### Spam Act 2003 Australia
 
-Spam ACT 2003 was created in December 2003 in Australia and enforced by Australian Communications Authority however in 2005 it became the Australian Communications and Media Authority. The act regulates commercial electronic mails and it aims to reduce the amount of unsolicited messages sent in Australia. Commercial electronic mail can be in text format, email, photos, audio format, forms, music or data. 
+### Spam Act 2003 
 
-This act outlines that commercial electronic mails should always include information of individual or organisation that authorised this email be to sent and mails should not be sent without consent. There are two types of consents: express and inferred. Consents can be gained through forms, face to face, phone and ticking a box on a website consenting personal information for e-marketing or when when signing up for a service. 
+Spam ACT 2003 was created in December 2003 in Australia and enforced by Australian Communications Authority, however in 2005 it became the Australian Communications and Media Authority. The act regulates commercial electronic mails and it aims to reduce the amount of unsolicited messages sent in Australia. 
 
-Every mail should contain sender information such as individual or organisation names and contact details. 
-For organisations their ABN (Australia Business number) is also required in the message body. Another important request is that commercial messages should give the receiver the option to opt out from receiving messages or marketing mail in a clear way. Clear examples would be:
-` Reply STOP to unsubscribe or click on the link provided to unsubscribe. `
-Companies have up to 5 days to honour unsubscribe requests from individuals and can not charge to proceed with request.
+Developers are crucial when it comes to the CAN-SPAM Act of 2003 because they create and manage systems for sending marketing emails. This law requires emails to have clear opt-out options, accurate sender information, and proper consent from users. Developers need to build features into their systems to make sure users can easily unsubscribe and that all email practices follow these rules. By doing this, they help companies avoid fines and ensure their email communications follows the legal obligations.
 
-Address harvesting applications (softwares that compile electronic addresses) should not be used or supplied to other organisations. 
-
-Failing to comply with legal obligations can result in civil penalties and injunctions. Penalties depends on breach severity, damage caused as result of the contravention, whether organisation or individual have prior records showing previous breaches. 
-
-Bellow is an example of infringement fines issued by ACMA for the year 2024.
-![Example of ACT 2003 issued fines](./screenshots/Spam2003.png)
+Failing to comply with legal obligations can result in civil penalties and injunctions. Penalties depends on breach severity and whether the organisation or individual have prior records showing previous breaches. 
 
 
 References for Privacy Act:
@@ -447,11 +443,7 @@ developer.atlassian.com. (n.d.). Data privacy guidelines for developers. [online
 
 References for Scam 2003 Act:
 
-https://www.acma.gov.au/. (2024). Investigations into spam and telemarketing. [online] Available at: https://www.acma.gov.au/investigations-spam-and-telemarketing#outcomes-for-2022 [Accessed 16 Jun. 2024].
-
 Australian Communications and Media Authority (2019). Spam Act | ACMA. [online] Acma.gov.au. Available at: https://www.acma.gov.au/avoid-sending-spam.
-
-scheme =AGLSTERMS. AglsAgent; corporateName=Infrastructure, T. (2016). Spam Act 2003. [online] www.legislation.gov.au. Available at: https://www.legislation.gov.au/C2004A01214/latest/text.
 
 
 # Q9
@@ -550,7 +542,7 @@ Primary keys are defined in every table to uniquely identify the entities. By de
 A foreign key is an attribute in one table that references the primary key of another table. It is used to establish and enforce a link between two tables, ensuring referential integrity. The foreign key in the child table must match the value in the primary key of the parent table (data consistency). This relational integrity ensures that any operation performed on table that contains the primary key, will automatically reflect on the table that contains the foreign key. 
 
 
-#### Cascade constraint and an example of Cascade in 'comments'
+#### Cascade constraint and example of Cascade in 'comments' from TRELLO API.
 
 Cascade can be used to ensure if data is removed from parent table, it will be automatically be removed from child table. In order to use Cascade, 'timestamp' cannot be used. Values on the table that contain the foreign keys needs to be nullable in order for cascading action to work. 
 
@@ -758,17 +750,21 @@ The delete method deletes data from database. The WHERE clause specifies the con
 Data manipulation can also be performed through HTTP requests via an API that connects the database to endpoints (routes). POST and PATCH endpoints may include validation requirements to ensure that only appropriate data is submitted. They can also enforce authorization checks to ensure that only authorized users can perform certain operations. For instance, in the TRELLO API, only the card owner or an admin user is permitted to perform operations on cards. Bellow is the most common manipulation methods from endpoints.
 
 
-GET request: Equivalent to the 'SELECT' method. In the TRELLO API, this request retrieves and displays users, cards, or comments. Parameters can be used to retrieve specific information.
+#### GET request 
+Equivalent to the 'SELECT' method. In the TRELLO API, this request retrieves and displays users, cards, or comments. Parameters can be used to retrieve specific information.
 
-POST request: Equivalent to the 'INSERT' method, it adds new information on database. In the TRELLO API, this request is responsible for user's registration and authentication, also creates new cards and comments. 
+#### POST request
+Equivalent to the 'INSERT' method, it adds new information on database. In the TRELLO API, this request is responsible for user's registration and authentication, also creates new cards and comments. 
 
-PUT/PATCH request: Equivalent to the 'UPDATE' method, it updates existing data in the database. In the TRELLO API, this request is responsible for updating existing data on Users, Cards and Comments. Generally, 'PATCH' is more used since it only updates a partial part of the data, while the 'PUT' methods updates the data as a whole.
+#### PUT/PATCH request
+Equivalent to the 'UPDATE' method, it updates existing data in the database. In the TRELLO API, this request is responsible for updating existing data on Users, Cards and Comments. Generally, 'PATCH' is more used since it only updates a partial part of the data, while the 'PUT' methods updates the data as a whole.
 
-DELETE request: Equivalent to the 'DELETE' method, it deletes a specific item based on the given parameter. In the TRELLO API, this request is responsible for deleting users, cards or comments.
+#### DELETE request 
+Equivalent to the 'DELETE' method, it deletes a specific item based on the given parameter. In the TRELLO API, this request is responsible for deleting users, cards or comments.
 
 
 #### POST method example from API TRELLO.
-This method allows an authenticated user to create a new card. It retrieves the information from the request body and uses the 'POST' method to create a new card instance. The card schema is used to serialize the data, and the new card is then displayed to the user.
+This method allows an authenticated user to create a new card. It retrieves the information from the request body and uses the 'POST' method to create a new card instance. The card schema is used to deserialize/ serialize the data from JSON into Python's understandable data and vice versa, and then the new card will be displayed to the user.
 
     # /cards - POST - create a new card, requires token
 
@@ -804,7 +800,7 @@ This method allows an authenticated user to create a new card. It retrieves the 
 
 #### Delete method example from API TRELLO.
 
-This method allows an authenticated user (either the card's owner or an admin) to delete a specific card. The <int:card_id> parameter specifies which card is to be deleted. After authentication, the function retrieves the card from the database and proceeds to delete it if the card exists. In both cases, the user receives an appropriate acknowledgment message.
+This method allows an authenticated user (either the card's owner or an admin user) to delete a specific card. The <int:card_id> parameter specifies which card is to be deleted. After authentication, the function retrieves the card from the database and proceeds to delete it if it exists. In both cases, the user receives an appropriate acknowledgment message.
 
 
     @cards_bp.route("/<int:card_id>", methods=["DELETE"])
@@ -838,10 +834,17 @@ This method allows an authenticated user (either the card's owner or an admin) t
 References taken from TRELLO API - Coder academy APR 2024.
 
 
-# Q12 - mark 42 (main question)
-Conduct research into a web application (app) and answer each of the following sub-questions:
+# Q12 
 
+## Kanboard app
+
+Q12-A:
 List and describe the software (tech stack) used by the app. 
+
+### Tech Stack:
+Backend: PHP
+Frontend: HTML, CSS, JavaScript
+Database: SQLite
 
 Describe or make educated guesses about the hardware used to host the app.
 
