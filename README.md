@@ -534,7 +534,7 @@ GeeksforGeeks (2015). Introduction of ER Model. [online] GeeksforGeeks. Availabl
 
 Data integrity is very crucial in relational database models to ensure data stored in database is accurate and consistent. Databases are only effective when they store accurate information that can be used to provide valuable insights. It's extremely important tables are connected correctly in order to retrieve accurate information and perform operations on database. 
 
-Applying constraints is a way to ensure integrity in Relation databases. Constraints are rules applied to database. These rules are required to be follow in order to process data correctly. A violation of constraints will cause database operations to be rejected.
+Applying constraints is a way to ensure integrity in Relation databases. Constraints are rules applied to database. These rules are required to be followed in order to process data correctly. A violation of constraints will cause database operations to be rejected.
 
 
 ### Type of constraints  
@@ -843,26 +843,260 @@ References taken from TRELLO API - Coder academy APR 2024.
 
 # Q12 
 
-## Kanboard app
+## FlaskBB - Flask Bulletin Board Application
 
-Q12-A:
-List and describe the software (tech stack) used by the app. 
+## Q12-A 
 
-### Tech Stack:
-Backend: PHP
-Frontend: HTML, CSS, JavaScript
-Database: SQLite
+### Front-End:
+- HTML: Defines the structure of the application.
+- CSS: Styles the application.
+- Jinja2: Python's web template engine used for rendering dynamic HTML.
+- JavaScript: Programming language used to create interactive content.
 
-Describe or make educated guesses about the hardware used to host the app.
+### Back-End:
 
-Describe the interaction of technologies within the app.
+- Python: Programming language used to develop the application.
+- Flask: Python's micro web framework used to build the web application and API.
+- SQLAlchemy: Object Relational Mapper to connect the application to the database.
+- Flask-Login: An extension used for managing user sessions and authentication.
+- Flask-Migrate: A Flask extension that handles SQLAlchemy database migrations, allowing changes to the database schema.
+- Databases: Stores, manages and retrieve data related to Users and Forums.
+    - SQLite: Default database. 
+    - Also supported: PostgreSQL and MySQL.
 
-Describe the way data is structured within the app’s database(s).
+- Git: Version control system used to track application's code progress. Ir allows collaboration between developers.
+- Virtual Environment: Used to isolate the project’s dependencies.
+- Pip: Manager package used to install dependencies to run the application.
+- 
 
-Identify the entities/tables that are tracked within the app’s database(s).
+References:
 
-Identify the relationships and associations between the entities/tables identified in sub-question E.
+flaskbb (2024). flaskbb/requirements.txt at master · flaskbb/flaskbb. [online] GitHub. Available at: https://github.com/flaskbb/flaskbb/blob/master/requirements.txt [Accessed 8 Sep. 2024].
 
-Design an entity relationship diagram (ERD) based on the answers provided to sub-questions E and F. This must represent a relational database model, even if the app itself uses something other than a relational database model.
+flaskbb (2014). flaskbb/flaskbb/configs/default.py at master · flaskbb/flaskbb. [online] GitHub. Available at: https://github.com/flaskbb/flaskbb/blob/master/flaskbb/configs/default.py [Accessed 8 Sep. 2024].
+
+‌
+flaskbb (2024). flaskbb/flaskbb/templates/layout.html at master · flaskbb/flaskbb. [online] GitHub. Available at: https://github.com/flaskbb/flaskbb/blob/master/flaskbb/templates/layout.html [Accessed 8 Sep. 2024].
+
+‌
+Readthedocs.io. (2022). Installation — FlaskBB Documentation. [online] Available at: https://flaskbb.readthedocs.io/en/latest/installation.html#id1 [Accessed 8 Sep. 2024].
+
+flaskbb (2014). flaskbb/flaskbb/app.py at master · flaskbb/flaskbb. [online] GitHub. Available at: https://github.com/flaskbb/flaskbb/blob/master/flaskbb/app.py [Accessed 8 Sep. 2024].
+
+‌
+
+### Q12-B
+
+- First step: 
+Create a Virtual Environment:
+Purpose: Keeps dependencies isolated.
+Setup: Install virtualenv and virtualenvwrapper. Activate virtual environment after creating it.
+
+- Second step: 
+Instal the dependencies:
+Install: Use pip to install FlaskBB’s dependencies from requirements.txt and requirements-dev.txt (extra dependencies required for development).
+
+- Third step: 
+Configuration:
+Create Config: Use the command 'flaskbb makeconfig' to generate a configuration file.
+Modify the following variables: Update the configuration file with settings like SERVER_NAME, SQLALCHEMY_DATABASE_URI, SECRET_KEY, and WTF_CSRF_SECRET_KEY.
+
+### Deployment (Supervisor + uWSGI + nginx)
+
+- Servers:
+Application Server: Runs the FlaskBB app (using uWSGI or Gunicorn). According to the official documentation Gunicorn is the easiest method to run a FlaskBB instance.
+Web Server: Handles user requests and serves files (using nginx).
+
+- Software Setup:
+Supervisor: Keeps the application server running.
+uWSGI/Gunicorn: Software that runs your FlaskBB app.
+nginx: Handles incoming requests and serves static files.
+
+- PythonAnywhere:
+Easy way to run FlaskBB. Create an account with PythonAnywhere and proceed with the configuration by git clone and install. All steps are listed on FlaskBB installation page.
 
 
+References:
+
+Readthedocs.io. (2022). Installation — FlaskBB Documentation. [online] Available at: https://flaskbb.readthedocs.io/en/latest/installation.html#id5 [Accessed 8 Sep. 2024].
+
+flaskbb (2024). flaskbb/docs/installation.rst at master · flaskbb/flaskbb. [online] GitHub. Available at: https://github.com/flaskbb/flaskbb/blob/master/docs/installation.rst [Accessed 8 Sep. 2024].
+
+
+
+## Q12 - C
+
+Flask is the core of the FlaskBB application. It handles HTTP requests and routes them to specific functions based on URL patterns. In FlaskBB, when a user requests to view a specific forum, Flask processes the request and generates the appropriate response. To gather the necessary data, Flask interacts with the database through SQLAlchemy. FlaskBB uses SQLite as its default database but can also be configured to work with other databases like PostgreSQL or MySQL. The user interface is built with HTML, CSS, Jinja2, and JavaScript. HTML provides the structure of the pages, CSS is responsible for the styling, and JavaScript adds interactivity. FlaskBB also uses Bootstrap, a front-end framework that ensures a responsive design, adapting the application for different screen sizes and devices.
+
+SQLAlchemy connects the Flask application to the database via Object-Relational Mapping (ORM). This allows developers to use Python classes to represent database tables, where each class corresponds to a table, and the class attributes represent table columns. SQLAlchemy also handles CRUD (Create, Read, Update, Delete) operations, allowing FlaskBB to interact with the database in a structured way. FlaskBB uses Flask-Migrate, an extension that helps manage database schema changes without data loss, by generating migration scripts whenever changes are made. Additionally, FlaskBB uses Flask-Login to manage user authentication. Flask-Login handles user logins, logout, and session management, ensuring secure access control throughout the application.
+
+Git is used for version control and collaboration in FlaskBB development. It allows developers to contribute to the project by submitting pull requests, reporting bugs, or suggesting new features. Contributions are managed through GitHub, where developers can review, track, and merge code changes.
+
+FlaskBB supports plugins and extensions, which make the application highly customizable. Developers can easily add new features or modify existing functionality through plugins, making it simple to adapt FlaskBB to specific needs without modifying its core codebase.
+
+
+### Q12-D
+
+In FlaskBB, the data is structured via the Object relational mapping, which organise the data into different tables. Each table represents a specific entity, such as users, groups, forums, moderators.
+
+### User
+Users are the individuals who interact with the forum.
+
+- Attributes:
+
+- Id: Unique identifier for the user.
+- Username: Unique username.
+- Email: Email address.
+- Password: Password for authentication.
+- Joined_on: Timestamp of when the user joined.
+
+- Relationship:
+- Posts: One-to-Many (a user can create many posts).
+- Groups: Many-to-Many (users can belong to multiple groups).
+
+### Group
+Groups represent roles or categories of users.
+
+- Attributes:
+- Id: Unique identifier for the group.
+Name: Name of the group (e.g., Admin, Moderator).
+Permissions: Permissions associated with the group.
+
+- Relationship:
+A group can have many users, many groups can have many users.
+
+### Forum
+Forums are the discussion areas in the application.
+
+- Attributes:
+- Id: Unique identifier for the forum.
+- Name: Name of the forum.
+- Description: Description of the forum.
+- Category_id: Foreign key to the Category to which the forum belongs.
+
+
+### Q12-E
+
+### Groups table
+
+    class Group(db.Model, CRUDMixin):
+        __tablename__ = "groups"
+
+        id = db.Column(db.Integer, primary_key=True)
+        name = db.Column(db.String(255), unique=True, nullable=False)
+        description = db.Column(db.Text, nullable=True)
+
+        # Group types
+        admin = db.Column(db.Boolean, default=False, nullable=False)
+        super_mod = db.Column(db.Boolean, default=False, nullable=False)
+        mod = db.Column(db.Boolean, default=False, nullable=False)
+        guest = db.Column(db.Boolean, default=False, nullable=False)
+        banned = db.Column(db.Boolean, default=False, nullable=False)
+
+
+### Users table
+    class User(db.Model, UserMixin, CRUDMixin):
+        __tablename__ = "users"
+
+        id = db.Column(db.Integer, primary_key=True)
+        username = db.Column(db.String(200), unique=True, nullable=False)
+        email = db.Column(db.String(200), unique=True, nullable=False)
+        _password = db.Column("password", db.String(120), nullable=False)
+        date_joined = db.Column(UTCDateTime(timezone=True), default=time_utcnow, nullable=False)
+
+
+### Forums table
+    class Forum(db.Model, CRUDMixin):
+        __tablename__ = "forums"
+
+        id = db.Column(db.Integer, primary_key=True)
+        category_id = db.Column(
+            db.Integer, db.ForeignKey("categories.id", ondelete="CASCADE"), nullable=False
+        )
+        title = db.Column(db.String(255), nullable=False)
+        description = db.Column(db.Text, nullable=True)
+        position = db.Column(db.Integer, default=1, nullable=False)
+        locked = db.Column(db.Boolean, default=False, nullable=False)
+        show_moderators = db.Column(db.Boolean, default=False, nullable=False)
+        external = db.Column(db.String(200), nullable=True)
+
+        post_count = db.Column(db.Integer, default=0, nullable=False)
+        topic_count = db.Column(db.Integer, default=0, nullable=False)
+
+
+### Q12-F
+
+<b> User to Group: Many-to-Many (through the groups_users table)</b>
+
+<b> Group to User: Many-to-Many (through the groups_users table)</b>
+
+    groups_users = db.Table(
+        "groups_users",
+        db.Column(
+            "user_id",
+            db.Integer,
+            db.ForeignKey("users.id", ondelete="CASCADE"),
+            nullable=False,
+        ),
+        db.Column(
+            "group_id",
+            db.Integer,
+            db.ForeignKey("groups.id", ondelete="CASCADE"),
+            nullable=False,
+        ),
+    )
+
+
+
+<b>Group to Forum: Many-to-Many (through the forumgroups table)</b>
+
+<b>Forum to Group: Many-to-Many (through the forumgroups table)</b>
+
+        forumgroups = db.Table(
+            "forumgroups",
+            db.Column(
+                "group_id",
+                db.Integer(),
+                db.ForeignKey("groups.id", ondelete="CASCADE"),
+                nullable=False,
+            ),
+            db.Column(
+                "forum_id",
+                db.Integer(),
+                db.ForeignKey("forums.id", ondelete="CASCADE"),
+                nullable=False,
+            ),
+        )
+
+
+
+<b>User to Forum: Many-to-Many (through the moderators table) </b>
+
+<b>Forum to User: Many-to-Many (through the moderators table) </b>
+
+    moderators = db.Table(
+        "moderators",
+        db.Column(
+            "user_id",
+            db.Integer(),
+            db.ForeignKey("users.id", ondelete="CASCADE"),
+            nullable=False,
+        ),
+        db.Column(
+            "forum_id",
+            db.Integer(),
+            db.ForeignKey("forums.id", ondelete="CASCADE"),
+            nullable=False,
+        ),
+    )
+
+
+### Q12-G
+
+![Screenshot](./screenshots/Q12.png)
+
+References for Q12:
+
+flaskbb (2024). flaskbb/flaskbb at master · flaskbb/flaskbb. [online] GitHub. Available at: https://github.com/flaskbb/flaskbb/tree/master/flaskbb [Accessed 8 Sep. 2024].
+
+‌
